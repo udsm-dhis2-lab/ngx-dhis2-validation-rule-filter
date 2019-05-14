@@ -1,6 +1,8 @@
 # NgxDhis2ValidationRuleFilterLibrary
 
 [![Build Status](https://travis-ci.org/interactive-apps/ngx-dhis2-validation-rule-filter.svg?branch=master)](https://travis-ci.org/interactive-apps/ngx-dhis2-validation-rule-filter)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
 
