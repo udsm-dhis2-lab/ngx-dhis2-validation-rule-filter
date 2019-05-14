@@ -1,7 +1,20 @@
 # NgxDhis2ValidationRuleFilterLibrary
 
 [![Build Status](https://travis-ci.org/interactive-apps/ngx-dhis2-validation-rule-filter.svg?branch=master)](https://travis-ci.org/interactive-apps/ngx-dhis2-validation-rule-filter)
+![GitHub package.json version (branch)](https://img.shields.io/github/package-json/v/interactive-apps/ngx-dhis2-validation-rule-filter/master.svg)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/interactive-apps/ngx-dhis2-validation-rule-filter.svg)
+![GitHub language count](https://img.shields.io/github/languages/count/interactive-apps/ngx-dhis2-validation-rule-filter.svg)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+![GitHub All Releases](https://img.shields.io/github/downloads/interactive-apps/ngx-dhis2-validation-rule-filter/total.svg)
+![GitHub issues](https://img.shields.io/github/issues-raw/interactive-apps/ngx-dhis2-validation-rule-filter.svg)
+![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/interactive-apps/ngx-dhis2-validation-rule-filter.svg)
+![GitHub contributors](https://img.shields.io/github/contributors/interactive-apps/ngx-dhis2-validation-rule-filter.svg)
+![GitHub last commit](https://img.shields.io/github/last-commit/interactive-apps/ngx-dhis2-validation-rule-filter.svg)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/interactive-apps/ngx-dhis2-validation-rule-filter.svg)
+![GitHub Release Date](https://img.shields.io/github/release-date/interactive-apps/ngx-dhis2-validation-rule-filter.svg)
+![GitHub release](https://img.shields.io/github/release/interactive-apps/ngx-dhis2-validation-rule-filter.svg)
+![GitHub](https://img.shields.io/github/license/interactive-apps/ngx-dhis2-validation-rule-filter.svg)
+![GitHub watchers](https://img.shields.io/github/watchers/interactive-apps/ngx-dhis2-validation-rule-filter.svg?style=social)
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
