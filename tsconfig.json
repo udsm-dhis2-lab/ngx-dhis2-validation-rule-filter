@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-dhis2-validation-rule-filter": [
+        "dist/ngx-dhis2-validation-rule-filter"
+      ],
+      "ngx-dhis2-validation-rule-filter/*": [
+        "dist/ngx-dhis2-validation-rule-filter/*"
+      ]
+    }
   }
 }
