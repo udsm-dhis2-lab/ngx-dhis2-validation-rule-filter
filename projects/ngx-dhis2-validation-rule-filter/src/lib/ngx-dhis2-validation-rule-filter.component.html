@@ -19,32 +19,23 @@
 
     <div class="validation-rule-group-header">
         <div class="validation-rule-group-available-header">
-            <span class="badge badge-secondary validation-rule-group-badge">{{ validationRuleGroups.length }}
+            <span class="badge badge-secondary validation-rule-group-badge">{{ availableValidationRuleGroups.length }}
                 Available</span>
             <button title="Select all validation-rule-groups" class="btn btn-sm btn-light">
                 &raquo;
             </button>
-        </div>
-        <div class="validation-rule-group-selected-header">
-            <button title="Unselect all validation-rule-groups" class="btn btn-sm btn-light">
-                &laquo;
-            </button>
-            <span class="badge badge-primary validation-rule-group-badge"></span>
         </div>
     </div>
 
     <div class="validation-rule-group-body">
         <div class="validation-rule-group-available-body">
             <ul class="validation-rule-group-list">
-                <li *ngFor="let validationRuleGroup of validationRuleGroups">
-                    <a>
-                        {{ validationRuleGroup.displayName }}
+                <li *ngFor="let availableValidationRuleGroup of availableValidationRuleGroups">
+                    <a (click)="onSelectValidationRuleGroup(availableValidationRuleGroup, $event)">
+                        {{ availableValidationRuleGroup.displayName }}
                     </a>
                 </li>
             </ul>
-        </div>
-        <div class="validation-rule-group-selected-body">
-            <ul class="validation-rule-group-list"></ul>
         </div>
     </div>
 
