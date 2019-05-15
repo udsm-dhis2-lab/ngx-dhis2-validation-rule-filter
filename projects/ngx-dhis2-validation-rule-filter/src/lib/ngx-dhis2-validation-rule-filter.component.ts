@@ -102,6 +102,19 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
           ...validationGroupList.slice(0, selectedValidationRuleIndex),
           ...validationGroupList.slice(selectedValidationRuleIndex + 1),
         ] : validationGroupList;
+    };
+
+    pushValidationRuleGroup = (
+        validationGroupList: Array<any>,
+        validationGroup: any
+    ) => {
+        if (!validationGroup) {
+            return validationGroupList;
+        }
+
+        return _.sortBy([...validationGroupList, validationGroup], [(validationGroupItem) => {
+          return validationGroupItem.displayName;
+        }]);
     }
 
     onSelectValidationRuleGroup = (validationRuleGroup: any, e) => {
@@ -116,6 +129,19 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
             this.availableValidationRuleGroups,
             validationRuleGroup
         );
-    }
+    };
 
+    onDeselectValidationRuleGroup = (validationRuleGroup: any, e) => {
+        e.stopPropagation();
+
+        this.selectedValidationRuleGroups = this.popValidationRuleGroup(
+            this.selectedValidationRuleGroups,
+            validationRuleGroup
+        );
+
+        this.availableValidationRuleGroups = this.pushValidationRuleGroup(
+            this.availableValidationRuleGroups,
+            validationRuleGroup
+        );
+    }
 }
