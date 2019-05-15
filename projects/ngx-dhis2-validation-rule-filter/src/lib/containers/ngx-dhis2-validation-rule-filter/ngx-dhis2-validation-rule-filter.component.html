@@ -1,0 +1,54 @@
+<div class="validation-rule-group-filter-container">
+  <!-- <div class="validation-rule-group-top-section">
+    <div class="validation-rule-group-type-section">
+      <select class="form-control form-control-sm pull-left validation-rule-group-type-selection">
+        <option [value]="''" disabled>Select Validation Rule Group</option>
+        <option *ngFor="let validationRuleGroup of validationRuleGroups">{{ validationRuleGroup.displayName }}</option>
+        <option *ngFor="let validationRuleGroup of validationRuleGroups">{{ validationRuleGroup.displayName }}</option>
+      </select>
+    </div>
+    <div class="validation-rule-group-year-section">
+      <div class="btn-group btn-group-sm">
+        <button type="button" class="btn btn-sm btn-outline-secondary">Prev Year</button>
+        <button type="button" class="btn btn-sm btn-outline-secondary">Next Year</button>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="validation-rule-group-header">
+    <div class="validation-rule-group-available-header">
+      <span class="badge badge-secondary validation-rule-group-badge">{{ validationRuleGroups.length }} Available</span>
+      <button title="Select all validation-rule-groups" class="btn btn-sm btn-light">
+        &raquo;
+      </button>
+    </div>
+    <div class="validation-rule-group-selected-header">
+      <button title="Unselect all validation-rule-groups" class="btn btn-sm btn-light">
+        &laquo;
+      </button>
+      <span class="badge badge-primary validation-rule-group-badge"></span>
+    </div>
+  </div>
+
+  <div class="validation-rule-group-body">
+    <div class="validation-rule-group-available-body">
+      <ul class="validation-rule-group-list">
+        <li *ngFor="let validationRuleGroup of validationRuleGroups">
+          <a>
+            {{ validationRuleGroup.displayName }}
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="validation-rule-group-selected-body">
+      <ul class="validation-rule-group-list"></ul>
+    </div>
+  </div>
+
+  <div class="validation-rule-group-filter-btns">
+    <div>
+      <button class="btn btn-light btn-sm">CLOSE</button>&nbsp;
+      <button class="btn btn-light btn-sm">UPDATE </button>
+    </div>
+  </div>
+</div>
