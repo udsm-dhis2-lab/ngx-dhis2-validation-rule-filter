@@ -9,7 +9,7 @@ branches:
   only:
     - master
     - develop
-    # - /^greenkeeper/.*$/
+    - /^greenkeeper/.*$/
 
 addons:
   apt:
