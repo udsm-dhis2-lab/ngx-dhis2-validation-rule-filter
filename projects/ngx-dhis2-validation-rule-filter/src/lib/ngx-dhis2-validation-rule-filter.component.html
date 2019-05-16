@@ -21,7 +21,7 @@
         <div class="validation-rule-group-available-header">
             <span class="badge badge-secondary validation-rule-group-badge">{{ availableValidationRuleGroups.length }}
                 Available</span>
-            <button title="Select all validation-rule-groups" class="btn btn-sm btn-light">
+            <button title="Select all validation-rule-groups" class="btn btn-sm btn-light" [disabled]="availableValidationRuleGroups.length === 0" (click)="onSelectAllValidationRuleGroup($event)">
                 &raquo;
             </button>
         </div>
