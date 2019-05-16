@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import * as _ from 'lodash';
-import { NgxDhis2ValidationRuleFilterService } from './ngx-dhis2-validation-rule-filter.service';
+import { NgxDhis2ValidationRuleFilterService } from '../../services/ngx-dhis2-validation-rule-filter.service';
 
 @Component({
     selector    : 'lib-ngx-dhis2-validation-rule-filter',
