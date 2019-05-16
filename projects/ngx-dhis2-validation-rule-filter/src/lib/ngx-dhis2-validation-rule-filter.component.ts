@@ -166,4 +166,10 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
         };
     }
 
+    onSelectAllValidationRuleGroup = (e) => {
+        e.stopPropagation();
+        this.selectedValidationRuleGroups = this.availableValidationRuleGroups;
+        this.availableValidationRuleGroups = [];
+    }
+
 }
