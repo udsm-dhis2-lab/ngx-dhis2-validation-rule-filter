@@ -169,7 +169,9 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
     onSelectAllValidationRuleGroup = (e) => {
         e.stopPropagation();
         if (this.selectedValidationRuleGroups.length > 0) {
-            this.selectedValidationRuleGroups = [...this.selectedValidationRuleGroups, ...this.availableValidationRuleGroups];
+            this.selectedValidationRuleGroups = _.sortBy(
+                [...this.selectedValidationRuleGroups, ...this.availableValidationRuleGroups]
+                , ['displayName']);
         } else {
             this.selectedValidationRuleGroups = this.availableValidationRuleGroups;
         }
@@ -179,7 +181,9 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
     onDeselectAllValidationRuleGroup = (e) => {
         e.stopPropagation();
         if (this.availableValidationRuleGroups.length > 0) {
-            this.availableValidationRuleGroups = [...this.availableValidationRuleGroups, ...this.selectedValidationRuleGroups];
+            this.availableValidationRuleGroups = _.sortBy(
+                [...this.availableValidationRuleGroups, ...this.selectedValidationRuleGroups]
+                , ['displayName']);
         } else {
             this.availableValidationRuleGroups = this.selectedValidationRuleGroups;
         }
