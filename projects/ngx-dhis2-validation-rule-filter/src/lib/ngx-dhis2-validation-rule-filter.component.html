@@ -21,12 +21,12 @@
         <div class="validation-rule-group-available-header">
             <span class="badge badge-secondary validation-rule-group-badge">{{ availableValidationRuleGroups.length }}
                 Available</span>
-            <button title="Select all validation-rule-groups" class="btn btn-sm btn-light" [disabled]="availableValidationRuleGroups.length === 0" (click)="onSelectAllValidationRuleGroup($event)">
+            <button title="Select all validation rule group" class="btn btn-sm btn-light" [disabled]="availableValidationRuleGroups.length === 0" (click)="onSelectAllValidationRuleGroup($event)">
                 &raquo;
             </button>
         </div>
         <div class="validation-rule-group-selected-header">
-            <button title="Unselect all validation-rule-groups" class="btn btn-sm btn-light">
+            <button title="Unselect all validation rule group" class="btn btn-sm btn-light"  [disabled]="selectedValidationRuleGroups.length === 0" (click)="onDeselectAllValidationRuleGroup($event)">
                 &laquo;
             </button>
             <span class="badge badge-primary validation-rule-group-badge">{{ selectedValidationRuleGroups.length }} Selected</span>
