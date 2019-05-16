@@ -7,10 +7,12 @@ export interface ValidationRuleGroupState {
 }
 
 export const initialState: ValidationRuleGroupState = {
-    data    : [{
-        id: 'dsddsdsdfsfsf',
-        displayName: 'Testing Validation Rule'
-    }],
+    data    : [
+        {
+            id          : 'dsddsdsdfsfsf',
+            displayName : 'Testing Validation Rule',
+        },
+    ],
     loaded  : false,
     loading : false,
 };
@@ -43,3 +45,13 @@ export function reducer (
     }
     return state;
 }
+
+export const getValidationRuleGroupLoading = (
+    state: ValidationRuleGroupState
+) => state.loading;
+
+export const getValidationRuleGroupLoaded = (state: ValidationRuleGroupState) =>
+    state.loaded;
+
+export const getValidationRuleGroups = (state: ValidationRuleGroupState) =>
+    state.data;

@@ -15,6 +15,8 @@ import * as fromStore from '../../store';
 export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
     selectedValidationRuleGroups: Array<any> = [];
     availableValidationRuleGroups: Array<any> = [];
+    // availableValidationRuleGroups$: Observable<Array<any>>;
+
 
     @Output() update = new EventEmitter();
     @Output() close = new EventEmitter();
@@ -26,10 +28,13 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
         //     res ? this.availableValidationRuleGroups = res.validationRuleGroups : this.availableValidationRuleGroups = [];
         // });
 
-        // NGRX Implementation
-        this.store.select<any>('validationRuleGroups').subscribe((state) => {
-            console.log('STATE::: ' , state);
+        // NGRX Implementation Long
+        this.store.select(fromStore.getAllValidationRuleGroups).subscribe((state) => {
+            (state) ? this.availableValidationRuleGroups = state : this.availableValidationRuleGroups = [];
         });
+
+        // NGRX Implementation Short
+        // this.availableValidationRuleGroups$ = this.store.select(fromStore.getAllValidationRuleGroups);
     }
 
     popValidationRuleGroup = (
