@@ -168,13 +168,21 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
 
     onSelectAllValidationRuleGroup = (e) => {
         e.stopPropagation();
-        this.selectedValidationRuleGroups = this.availableValidationRuleGroups;
+        if (this.selectedValidationRuleGroups.length > 0) {
+            this.selectedValidationRuleGroups = [...this.selectedValidationRuleGroups, ...this.availableValidationRuleGroups];
+        } else {
+            this.selectedValidationRuleGroups = this.availableValidationRuleGroups;
+        }
         this.availableValidationRuleGroups = [];
     }
 
     onDeselectAllValidationRuleGroup = (e) => {
         e.stopPropagation();
-        this.availableValidationRuleGroups = this.selectedValidationRuleGroups;
+        if (this.availableValidationRuleGroups.length > 0) {
+            this.availableValidationRuleGroups = [...this.availableValidationRuleGroups, ...this.selectedValidationRuleGroups];
+        } else {
+            this.availableValidationRuleGroups = this.selectedValidationRuleGroups;
+        }
         this.selectedValidationRuleGroups = [];
     }
 
