@@ -26,21 +26,18 @@ const environment = {
 
 export const metaReducers: MetaReducer<any>[] = !environment.production ? [storeFreeze] : [];
 
-
-
-
 @NgModule({
   declarations: [
-    AppComponent,
-    // StoreModule.forRoot({ count: counterReducer })
-    // EffectsModule.forRoot([]),
-    // environment.development ? StoreDevtoolsModule.instrumentStore() : [],
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgxDhis2ValidationRuleFilterModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot({} , { metaReducers }),
+    EffectsModule.forRoot([]),
+    // environment.development ? StoreDevtoolsModule.instrumentStore() : [],
   ],
   providers: [],
   bootstrap: [AppComponent]

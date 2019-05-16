@@ -7,7 +7,10 @@ export interface ValidationRuleGroupState {
 }
 
 export const initialState: ValidationRuleGroupState = {
-    data    : [],
+    data    : [{
+        id: 'dsddsdsdfsfsf',
+        displayName: 'Testing Validation Rule'
+    }],
     loaded  : false,
     loading : false,
 };

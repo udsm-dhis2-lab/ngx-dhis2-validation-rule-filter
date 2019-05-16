@@ -1,6 +1,9 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import * as _ from 'lodash';
 import { NgxDhis2ValidationRuleFilterService } from '../../services/ngx-dhis2-validation-rule-filter.service';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import * as fromStore from '../../store';
 
 @Component({
     selector    : 'lib-ngx-dhis2-validation-rule-filter',
@@ -16,11 +19,16 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
     @Output() update = new EventEmitter();
     @Output() close = new EventEmitter();
 
-    constructor(private service: NgxDhis2ValidationRuleFilterService) {}
+    constructor(private service: NgxDhis2ValidationRuleFilterService, private store: Store<fromStore.ApplicationState>) {}
 
     ngOnInit() {
-        this.service.getValidationRuleGroups().subscribe((res) => {
-            res ? this.availableValidationRuleGroups = res.validationRuleGroups : this.availableValidationRuleGroups = [];
+        // this.service.getValidationRuleGroups().subscribe((res) => {
+        //     res ? this.availableValidationRuleGroups = res.validationRuleGroups : this.availableValidationRuleGroups = [];
+        // });
+
+        // NGRX Implementation
+        this.store.select<any>('validationRuleGroups').subscribe((state) => {
+            console.log('STATE::: ' , state);
         });
     }
 
