@@ -150,19 +150,19 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
 
     onClose = (e) => {
         e.stopPropagation();
-        this.close.emit(this.getValidationRuleSelection())
+        this.close.emit(this.getValidationRuleSelection());
     }
 
 
     onUpdate = (e) => {
         e.stopPropagation();
-        this.close.emit(this.getValidationRuleSelection())
+        this.update.emit(this.getValidationRuleSelection());
     }
 
 
     getValidationRuleSelection = () => {
         return {
-            emittedData: this.selectedValidationRuleGroups
+            selectedValidationRuleGroup: this.selectedValidationRuleGroups
         };
     }
 

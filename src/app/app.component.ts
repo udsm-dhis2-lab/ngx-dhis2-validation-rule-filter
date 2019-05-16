@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ngx-dhis2-validation-rule-filter-library';
+
+  selectedValidationRuleGroup: any;
+  action: any;
+
+  onUpdateValidationRule = (selectedValidationRuleGroup, action) => {
+    this.selectedValidationRuleGroup = selectedValidationRuleGroup;
+    this.action = action;
+  }
 }
