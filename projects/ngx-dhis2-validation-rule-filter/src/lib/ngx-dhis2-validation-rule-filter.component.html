@@ -59,7 +59,7 @@
     <div class="validation-rule-group-filter-btns">
         <div>
             <button class="btn btn-light btn-sm">CLOSE</button>&nbsp;
-            <button class="btn btn-light btn-sm">UPDATE </button>
+            <button class="btn btn-light btn-sm"  [disabled]="selectedValidationRuleGroups.length === 0">UPDATE </button>
         </div>
     </div>
 </div>
