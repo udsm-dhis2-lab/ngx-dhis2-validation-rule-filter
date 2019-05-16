@@ -14,7 +14,7 @@ import { EffectsModule, Actions, Effect, ofType } from '@ngrx/effects';
 // BrowserAnimationModule
 
 // Not used in production
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+// import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { storeFreeze } from 'ngrx-store-freeze';
 
 
