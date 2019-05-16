@@ -32,7 +32,6 @@ export const metaReducers: MetaReducer<any>[] = !environment.production ? [store
 @NgModule({
   declarations: [
     AppComponent,
-    BrowserModule,
     // StoreModule.forRoot({ count: counterReducer })
     // EffectsModule.forRoot([]),
     // environment.development ? StoreDevtoolsModule.instrumentStore() : [],
