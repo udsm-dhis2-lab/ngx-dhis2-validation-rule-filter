@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgxDhis2ValidationRuleFilterModule } from 'projects/ngx-dhis2-validation-rule-filter/src/public-api';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { NgxDhis2ValidationRuleFilterModule } from 'projects/ngx-dhis2-validatio
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgxDhis2ValidationRuleFilterModule
+    NgxDhis2ValidationRuleFilterModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
