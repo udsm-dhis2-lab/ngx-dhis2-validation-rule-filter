@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import * as _ from 'lodash';
 
 @Component({
@@ -11,6 +11,9 @@ import * as _ from 'lodash';
 export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
     selectedValidationRuleGroups: Array<any> = [];
     availableValidationRuleGroups: Array<any> = [];
+
+    @Output() update = new EventEmitter();
+    @Output() close = new EventEmitter();
 
     constructor() {}
 
@@ -89,7 +92,7 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
     ): any => {
 
         if (!validationGroup) {
-          return validationGroupList;
+            return validationGroupList;
         }
 
         const selectedValidationRuleIndex: any = _.findIndex(
@@ -99,8 +102,8 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
         );
 
         return selectedValidationRuleIndex !== -1 ? [
-          ...validationGroupList.slice(0, selectedValidationRuleIndex),
-          ...validationGroupList.slice(selectedValidationRuleIndex + 1),
+            ...validationGroupList.slice(0, selectedValidationRuleIndex),
+            ...validationGroupList.slice(selectedValidationRuleIndex + 1),
         ] : validationGroupList;
     };
 
@@ -113,7 +116,7 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
         }
 
         return _.sortBy([...validationGroupList, validationGroup], [(validationGroupItem) => {
-          return validationGroupItem.displayName;
+            return validationGroupItem.displayName;
         }]);
     }
 
@@ -144,4 +147,23 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
             validationRuleGroup
         );
     }
+
+    onClose = (e) => {
+        e.stopPropagation();
+        this.close.emit(this.getValidationRuleSelection())
+    }
+
+
+    onUpdate = (e) => {
+        e.stopPropagation();
+        this.close.emit(this.getValidationRuleSelection())
+    }
+
+
+    getValidationRuleSelection = () => {
+        return {
+            emittedData: this.selectedValidationRuleGroups
+        };
+    }
+
 }
