@@ -25,12 +25,11 @@ export function reducer(
         case fromActions.LOAD_VALIDATION_RULE_GROUPS_SUCCESS: {
             // tslint:disable-next-line: no-string-literal
             const validationRuleGroups = action.payload['validationRuleGroups'];
-            const entities = validationRuleGroups.reduce((entities: {[id: string]: {}}, validationRuleGroup) => {
-                return {
-                    ...entities,
-                    [validationRuleGroup.id]: validationRuleGroup
-                };
-            }, {
+            // tslint:disable-next-line: no-shadowed-variable
+            const entities = validationRuleGroups.reduce((entities: {[id: string]: {}}, validationRuleGroup) => ({
+                ...entities,
+                [validationRuleGroup.id]: validationRuleGroup
+            }), {
                 ...state.entities
             });
             return {
