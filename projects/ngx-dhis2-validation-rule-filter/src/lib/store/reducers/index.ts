@@ -2,12 +2,12 @@ import * as fromReducer from '../reducers/validation-rule-groups.reducer';
 import { ActionReducerMap, createFeatureSelector, createSelector } from '@ngrx/store';
 
 export interface ApplicationState {
-    validationRuleGroups: fromReducer.ValidationRuleGroupState,
+    validationRuleGroups: fromReducer.ValidationRuleGroupState;
 }
 
 export const reducers: ActionReducerMap<ApplicationState> = {
     validationRuleGroups : fromReducer.reducer,
-}; 
+};
 
 export const getApplicationState = createFeatureSelector<ApplicationState>(
     'validationRuleGroups'
@@ -15,7 +15,7 @@ export const getApplicationState = createFeatureSelector<ApplicationState>(
 
 // Validation rule state
 export const getValidationRuleGroupState = createSelector(
-    getApplicationState, 
+    getApplicationState,
     (state: ApplicationState) => state.validationRuleGroups
 );
 
