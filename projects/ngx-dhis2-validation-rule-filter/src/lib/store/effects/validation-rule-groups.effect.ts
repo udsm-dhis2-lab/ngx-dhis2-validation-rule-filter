@@ -19,7 +19,7 @@ export class ValidationRuleGroupEffects {
                 .pipe(
                     map(validationRuleGroup => new validationRuleActions.LoadValidationRuleGroupsSuccess(validationRuleGroup)),
                     catchError((error) => of(new validationRuleActions.LoadValidationRuleGroupsFail(error)))
-                )
+                );
         })
     );
 }

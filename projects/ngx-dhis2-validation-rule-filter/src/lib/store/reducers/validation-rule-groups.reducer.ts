@@ -23,6 +23,7 @@ export function reducer (
             };
         }
         case fromActions.LOAD_VALIDATION_RULE_GROUPS_SUCCESS: {
+            // tslint:disable-next-line: no-string-literal
             const data = action.payload['validationRuleGroups'];
             return {
                 ...state,
