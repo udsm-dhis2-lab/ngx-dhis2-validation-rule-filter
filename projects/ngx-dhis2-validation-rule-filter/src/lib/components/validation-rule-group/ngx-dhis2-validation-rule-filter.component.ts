@@ -15,7 +15,7 @@ import * as fromStore from '../../store';
 export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
     selectedValidationRuleGroups: Array<any> = [];
     availableValidationRuleGroups: Array<any> = [];
-    // availableValidationRuleGroups$: Observable<Array<any>>;
+    // availableValidationRuleGroups$: Observable<Array<any
 
 
     @Output() update = new EventEmitter();
@@ -24,17 +24,20 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
     constructor(private service: NgxDhis2ValidationRuleFilterService, private store: Store<fromStore.ApplicationState>) {}
 
     ngOnInit() {
+        // SERVICE Driven Approach
         // this.service.getValidationRuleGroups().subscribe((res) => {
         //     res ? this.availableValidationRuleGroups = res.validationRuleGroups : this.availableValidationRuleGroups = [];
         // });
 
-        // NGRX Implementation Long
+        // NGRX Driven Approach - LONG
         this.store.select(fromStore.getAllValidationRuleGroups).subscribe((state) => {
             (state) ? this.availableValidationRuleGroups = state : this.availableValidationRuleGroups = [];
         });
 
-        // NGRX Implementation Short
+        // NGRX Driven Approach - SHORT
         // this.availableValidationRuleGroups$ = this.store.select(fromStore.getAllValidationRuleGroups);
+
+        this.store.dispatch(new fromStore.LoadValidationRuleGroups());
     }
 
     popValidationRuleGroup = (

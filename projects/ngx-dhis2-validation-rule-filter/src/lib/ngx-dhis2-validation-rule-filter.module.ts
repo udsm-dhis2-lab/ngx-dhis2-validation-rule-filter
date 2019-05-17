@@ -3,7 +3,8 @@ import { NgxDhis2ValidationRuleFilterComponent } from './components/validation-r
 import { CommonModule } from '@angular/common';
 
 import { StoreModule } from '@ngrx/store';
-import { reducers } from './store';
+import { EffectsModule } from '@ngrx/effects';
+import { reducers, effects } from './store';
 
 
 
@@ -11,7 +12,8 @@ import { reducers } from './store';
   declarations: [NgxDhis2ValidationRuleFilterComponent],
   imports: [
     CommonModule,
-    StoreModule.forFeature('validationRuleGroups', reducers)
+    StoreModule.forFeature('validationRuleGroups', reducers),
+    EffectsModule.forFeature(effects)
   ],
   exports: [NgxDhis2ValidationRuleFilterComponent]
 })

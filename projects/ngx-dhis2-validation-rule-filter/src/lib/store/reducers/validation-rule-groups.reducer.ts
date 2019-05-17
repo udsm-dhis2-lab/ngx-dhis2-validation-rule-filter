@@ -1,18 +1,12 @@
 import * as fromActions from '../actions/validation-rule-groups.action';
-
 export interface ValidationRuleGroupState {
-    data: any[],
-    loaded: boolean,
-    loading: boolean,
+    data: any[];
+    loaded: boolean;
+    loading: boolean;
 }
 
 export const initialState: ValidationRuleGroupState = {
-    data    : [
-        {
-            id          : 'dsddsdsdfsfsf',
-            displayName : 'Testing Validation Rule',
-        },
-    ],
+    data    : [],
     loaded  : false,
     loading : false,
 };
@@ -29,10 +23,13 @@ export function reducer (
             };
         }
         case fromActions.LOAD_VALIDATION_RULE_GROUPS_SUCCESS: {
+            // tslint:disable-next-line: no-string-literal
+            const data = action.payload['validationRuleGroups'];
             return {
                 ...state,
                 loading : false,
                 loaded  : true,
+                data
             };
         }
         case fromActions.LOAD_VALIDATION_RULE_GROUPS_FAIL: {
