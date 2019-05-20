@@ -35,13 +35,18 @@
 
     <div class="validation-rule-group-body">
         <div class="validation-rule-group-available-body">
-            <ul class="validation-rule-group-list">
-                <li *ngFor="let availableValidationRuleGroup of availableValidationRuleGroups">
-                    <a (click)="onSelectValidationRuleGroup(availableValidationRuleGroup, $event)">
-                        {{ availableValidationRuleGroup.displayName }}
-                    </a>
-                </li>
-            </ul>
+            <div *ngIf="(loading$ | async)" style='text-align: center'>
+                <lib-progress-loader [loadingSize]="'large'" [loadingMessage]="loadingMessage"></lib-progress-loader>
+            </div>
+            <div>
+                <ul class="validation-rule-group-list">
+                    <li *ngFor="let availableValidationRuleGroup of availableValidationRuleGroups">
+                        <a (click)="onSelectValidationRuleGroup(availableValidationRuleGroup, $event)">
+                            {{ availableValidationRuleGroup.displayName }}
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
         <div class="validation-rule-group-selected-body">
             <ul class="validation-rule-group-list">

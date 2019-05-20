@@ -15,7 +15,10 @@ import * as fromStore from '../../store';
 export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
     selectedValidationRuleGroups: Array<any> = [];
     availableValidationRuleGroups: Array<any> = [];
-    // availableValidationRuleGroups$: Observable<Array<any
+    // availableValidationRuleGroups$: Observable<Array<any>>
+    loading$: Observable<boolean>;
+    loaded$: Observable<boolean>;
+    loadingMessage;
 
 
     @Output() update = new EventEmitter();
@@ -24,6 +27,7 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
     constructor(private service: NgxDhis2ValidationRuleFilterService, private store: Store<fromStore.ApplicationState>) {}
 
     ngOnInit() {
+        this.loadingMessage = 'Loading Validation...';
         // SERVICE Driven Approach
         // this.service.getValidationRuleGroups().subscribe((res) => {
         //     res ? this.availableValidationRuleGroups = res.validationRuleGroups : this.availableValidationRuleGroups = [];
@@ -33,6 +37,9 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
         this.store.select(fromStore.getAllValidationRuleGroups).subscribe((state) => {
             (state) ? this.availableValidationRuleGroups = state : this.availableValidationRuleGroups = [];
         });
+
+        this.loaded$ = this.store.select(fromStore.getValidationRuleGroupsLoaded);
+        this.loading$ = this.store.select(fromStore.getValidationRuleGroupsLoading);
 
         // NGRX Driven Approach - SHORT
         // this.availableValidationRuleGroups$ = this.store.select(fromStore.getAllValidationRuleGroups);
