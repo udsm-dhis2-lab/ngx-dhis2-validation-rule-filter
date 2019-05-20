@@ -5,11 +5,12 @@ import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { reducers, effects } from './store';
+import { ProgressLoaderComponent } from './components/progress-loader/progress-loader.component';
 
 
 
 @NgModule({
-  declarations: [NgxDhis2ValidationRuleFilterComponent],
+  declarations: [NgxDhis2ValidationRuleFilterComponent, ProgressLoaderComponent],
   imports: [
     CommonModule,
     StoreModule.forFeature('validationRuleGroups', reducers),
