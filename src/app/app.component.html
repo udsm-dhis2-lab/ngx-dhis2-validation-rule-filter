@@ -30,7 +30,7 @@
       <b>VALIDATION RULE FILTER</b>
       <div class="card">
         <div class="card-body" style="padding: 5px;">
-          <lib-ngx-dhis2-validation-rule-filter (update)="onUpdateValidationRule($event, 'UPDATE')"
+          <lib-ngx-dhis2-validation-rule-filter [dataSelection]='dataElements' (update)="onUpdateValidationRule($event, 'UPDATE')"
             (close)="onUpdateValidationRule($event, 'CLOSE')"></lib-ngx-dhis2-validation-rule-filter>
         </div>
       </div>

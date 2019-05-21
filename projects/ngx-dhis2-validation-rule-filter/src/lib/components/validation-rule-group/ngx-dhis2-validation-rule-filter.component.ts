@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import * as _ from 'lodash';
 import { NgxDhis2ValidationRuleFilterService } from '../../services/ngx-dhis2-validation-rule-filter.service';
 import { Store } from '@ngrx/store';
@@ -20,7 +20,7 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
     loaded$: Observable<boolean>;
     loadingMessage;
 
-
+    @Input() dataSelection: Array<string>;
     @Output() update = new EventEmitter();
     @Output() close = new EventEmitter();
 
@@ -44,7 +44,7 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
         // NGRX Driven Approach - SHORT
         // this.availableValidationRuleGroups$ = this.store.select(fromStore.getAllValidationRuleGroups);
 
-        this.store.dispatch(new fromStore.LoadValidationRuleGroups());
+        this.store.dispatch(new fromStore.LoadValidationRuleGroups(this.dataSelection));
     }
 
     popValidationRuleGroup = (

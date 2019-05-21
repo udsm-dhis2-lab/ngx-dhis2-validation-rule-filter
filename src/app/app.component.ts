@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +10,19 @@ export class AppComponent {
 
   selectedValidationRuleGroup: any;
   action: any;
+  dataElements: Array<string>;
 
-  onUpdateValidationRule = (selectedValidationRuleGroup, action) => {
+  ngOnInit() {
+    this.dataElements = [
+      'NQUI9v85csU',
+      'SQ7kqkZkEwV',
+      'Lnf095vgahq',
+      'Lnf095vgahq',
+      'Lnf095vgahq'
+    ];
+  }
+
+  onUpdateValidationRule = (selectedValidationRuleGroup, action?) => {
     this.selectedValidationRuleGroup = selectedValidationRuleGroup;
     this.action = action;
   }

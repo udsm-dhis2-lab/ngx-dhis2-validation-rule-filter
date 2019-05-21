@@ -5,6 +5,7 @@ import { of } from 'rxjs/observable/of';
 
 import * as validationRuleActions from '../actions/validation-rule-groups.action';
 import * as fromServices from '../../services/ngx-dhis2-validation-rule-filter.service';
+import * as fromActionsTypes from '../actions/validation-rule-groups.action';
 
 @Injectable()
 export class ValidationRuleGroupEffects {
@@ -13,9 +14,9 @@ export class ValidationRuleGroupEffects {
     @Effect()
     LoadValidationRuleGroup$ = this.actions$.pipe(
         ofType(validationRuleActions.LOAD_VALIDATION_RULE_GROUPS),
-        switchMap(() => {
+        switchMap((action: fromActionsTypes.ValidationRuleGroupsActions) => {
             return this.validationRuleService
-                .getValidationRuleGroups()
+                .getValidationRuleGroups(action.payload)
                 .pipe(
                     map(validationRuleGroup => new validationRuleActions.LoadValidationRuleGroupsSuccess(validationRuleGroup)),
                     catchError((error) => of(new validationRuleActions.LoadValidationRuleGroupsFail(error)))
