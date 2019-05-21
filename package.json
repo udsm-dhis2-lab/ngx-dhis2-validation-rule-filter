@@ -1,6 +1,6 @@
 {
-  "name": "ngx-dhis2-validation-rule-filter-library",
-  "version": "1.0.0",
+  "name": "@iapps/ngx-dhis2-validation-rule-filter",
+  "version": "1.0.0-alpha.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxy-config proxy-config.json",
