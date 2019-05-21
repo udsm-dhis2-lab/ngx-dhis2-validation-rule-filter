@@ -42,7 +42,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ### How to use
 After installation you can use the following tags to start using it in your project.
 
-    <lib-ngx-dhis2-validation-rule-filter 
+    <lib-ngx-dhis2-validation-rule-
+        [dataSelection]='dataElements' 
         (update)="onUpdateValidationRule($event)"
         (close)="onUpdateValidationRule($event)">
     <lib-ngx-dhis2-validation-rule-filter>

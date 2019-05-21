@@ -32,7 +32,8 @@ Dhis2 Validation Rule Group(DVRG) is a user interface component library for deve
 ### How to use
 After installation you can use the following tags to start using it in your project.
 
-    <lib-ngx-dhis2-validation-rule-filter 
+    <lib-ngx-dhis2-validation-rule-filter
+        [dataSelection]='dataElements'
         (update)="onUpdateValidationRule($event)"
         (close)="onUpdateValidationRule($event)">
     <lib-ngx-dhis2-validation-rule-filter>

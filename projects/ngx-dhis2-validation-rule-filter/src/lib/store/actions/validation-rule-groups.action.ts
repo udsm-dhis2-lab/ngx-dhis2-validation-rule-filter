@@ -8,6 +8,7 @@ export const LOAD_VALIDATION_RULE_GROUPS_SUCCESS = '[VALIDATION RULE GROUPS] Loa
 
 export class LoadValidationRuleGroups implements Action {
     readonly type = LOAD_VALIDATION_RULE_GROUPS;
+    constructor(public payload: Array<string>) {}
 }
 
 export class LoadValidationRuleGroupsFail implements Action {
