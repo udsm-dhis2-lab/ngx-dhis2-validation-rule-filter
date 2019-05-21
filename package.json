@@ -1,5 +1,5 @@
 {
-  "name": "@iapps/ngx-dhis2-validation-rule-filter",
+  "name": "@iapps/ngx-dhis2-validation-rule-group-filter",
   "version": "1.0.0-alpha.1",
   "scripts": {
     "ng": "ng",
