@@ -7,6 +7,7 @@
 [![Gitter chat](https://badges.gitter.im/interactive-apps/gitter.png)](https://gitter.im/interactive-apps/community)
 ![GitHub](https://img.shields.io/github/license/interactive-apps/ngx-dhis2-validation-rule-filter.svg)
 [![commitizen on stackoverflow](https://img.shields.io/badge/stackoverflow-community-orange.svg?longCache=true&style=flat-square&logo=stackoverflow)](https://stackoverflow.com/tags/dhis-2)
+![npm](https://img.shields.io/npm/v/@iapps/ngx-dhis2-validation-rule-filter.svg)
 
 
 ## Introduction
