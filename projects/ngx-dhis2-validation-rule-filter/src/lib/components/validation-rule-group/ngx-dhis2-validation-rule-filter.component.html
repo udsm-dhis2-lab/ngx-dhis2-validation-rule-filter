@@ -42,7 +42,7 @@
                 <ul class="validation-rule-group-list">
                     <li *ngFor="let availableValidationRuleGroup of availableValidationRuleGroups">
                         <a (click)="onSelectValidationRuleGroup(availableValidationRuleGroup, $event)">
-                            {{ availableValidationRuleGroup.displayName }}
+                            {{ availableValidationRuleGroup.name }}
                         </a>
                     </li>
                 </ul>
@@ -53,7 +53,7 @@
                 <ul class="validation-rule-group-list">
                     <li *ngFor="let selectedValidationRuleGroup of selectedValidationRuleGroups">
                         <a (click)="onDeselectValidationRuleGroup(selectedValidationRuleGroup, $event)">
-                            {{ selectedValidationRuleGroup.displayName }}
+                            {{ selectedValidationRuleGroup.name }}
                         </a>
                     </li>
                 </ul>

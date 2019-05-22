@@ -4,6 +4,7 @@ import { NgxDhis2ValidationRuleFilterService } from '../../services/ngx-dhis2-va
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import * as fromStore from '../../store';
+import * as fromModel from '../../models';
 
 @Component({
     selector    : 'lib-ngx-dhis2-validation-rule-filter',
@@ -14,8 +15,7 @@ import * as fromStore from '../../store';
 })
 export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
     selectedValidationRuleGroups: Array<any> = [];
-    availableValidationRuleGroups: Array<any> = [];
-    // availableValidationRuleGroups$: Observable<Array<any>>
+    availableValidationRuleGroups: Array<{ name: string, id: string }>;
     loading$: Observable<boolean>;
     loaded$: Observable<boolean>;
     loadingMessage;
@@ -34,7 +34,7 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
         // });
 
         // NGRX Driven Approach - LONG
-        this.store.select(fromStore.getAllValidationRuleGroups).subscribe((state) => {
+        this.store.select(fromStore.getAllValidationRuleGroups).subscribe((state: Array<{ name: string, id: string }>) => {
             (state) ? this.availableValidationRuleGroups = state : this.availableValidationRuleGroups = [];
         });
 
