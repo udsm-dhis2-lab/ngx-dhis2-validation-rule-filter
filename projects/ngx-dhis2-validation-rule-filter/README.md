@@ -7,7 +7,11 @@
 [![Gitter chat](https://badges.gitter.im/interactive-apps/gitter.png)](https://gitter.im/interactive-apps/community)
 ![GitHub](https://img.shields.io/github/license/interactive-apps/ngx-dhis2-validation-rule-filter.svg)
 [![commitizen on stackoverflow](https://img.shields.io/badge/stackoverflow-community-orange.svg?longCache=true&style=flat-square&logo=stackoverflow)](https://stackoverflow.com/tags/dhis-2)
-![npm](https://img.shields.io/npm/v/@iapps/ngx-dhis2-validation-rule-filter.svg)
+![npm](https://img.shields.io/npm/v/@iapps/ngx-dhis2-validation-rule-group-filter.svg)
+![GitHub All Releases](https://img.shields.io/github/downloads/interactive-apps/ngx-dhis2-validation-rule-filter/total.svg)
+![GitHub issues](https://img.shields.io/github/issues/interactive-apps/ngx-dhis2-validation-rule-filter.svg)
+![GitHub closed issues](https://img.shields.io/github/issues-closed/interactive-apps/ngx-dhis2-validation-rule-filter.svg)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/interactive-apps/ngx-dhis2-validation-rule-filter.svg)
 
 
 ## Introduction
@@ -37,3 +41,12 @@ After installation you can use the following tags to start using it in your proj
         (update)="onUpdateValidationRule($event)"
         (close)="onUpdateValidationRule($event)">
     <lib-ngx-dhis2-validation-rule-filter>
+
+
+## Versioning
+> Current version of this build of **Dhis2 Validation Rule Group Filter Library**
+
+![GitHub package.json version](https://img.shields.io/github/package-json/v/interactive-apps/ngx-dhis2-validation-rule-filter.svg)
+
+## Licence
+![GitHub](https://img.shields.io/github/license/interactive-apps/ngx-dhis2-validation-rule-filter.svg)
