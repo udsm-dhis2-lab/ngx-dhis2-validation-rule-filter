@@ -19,7 +19,7 @@ function sanitizeAllValidationRuleGroup(data: Array<Array<{}>>) {
     if (datas) {
         datas.forEach((dataArray: Array<{}>) => {
             dataArray.forEach((dataItem) => {
-                if(dataItem) {
+                if (dataItem) {
                     if (!allValidationRuleGroup.includes(dataItem)) {
                         allValidationRuleGroup.push(dataItem);
                     }

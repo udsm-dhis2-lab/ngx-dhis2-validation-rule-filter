@@ -52,7 +52,6 @@
             <ul class="validation-rule-group-list">
                 <ul class="validation-rule-group-list">
                     <li *ngFor="let selectedValidationRuleGroup of selectedValidationRuleGroups">
-                        <img [src]="tick" alt="tick">
                         <a (click)="onDeselectValidationRuleGroup(selectedValidationRuleGroup, $event)">
                             {{ selectedValidationRuleGroup.name }}
                         </a>
