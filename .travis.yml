@@ -20,8 +20,16 @@ addons:
 
 before_install:
   - npm i typescript@3.2.2 --save-dev --save-exact
-  - npm i core-js
-  - npm install --save-dev @angular-devkit/build-angular
+  - npm i core-js@2.6.5
+  - npm update
+  # - ng update
+  # - npm i --only=dev
+  # - npm uninstall -g @angular/cli
+  # - npm cache clean --force
+  # - npm install -g @angular/cli@latest
+  # - npm install node-sass -g
+  # - npm install --save-dev @angular-devkit/build-angular
+  # - npm install --save @angular-devkit/build-angular
   - export CHROME_BIN=chromium-browser
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
