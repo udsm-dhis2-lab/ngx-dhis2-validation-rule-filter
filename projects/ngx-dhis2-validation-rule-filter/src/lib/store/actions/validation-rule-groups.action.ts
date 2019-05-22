@@ -1,4 +1,5 @@
 import { Action } from '@ngrx/store';
+import * as fromModel from '../../models';
 
 // Load validation rule groups
 
@@ -18,7 +19,7 @@ export class LoadValidationRuleGroupsFail implements Action {
 
 export class LoadValidationRuleGroupsSuccess implements Action {
     readonly type = LOAD_VALIDATION_RULE_GROUPS_SUCCESS;
-    constructor(public payload: []) {}
+    constructor(public payload: fromModel.APIResult) {}
 }
 
 // action types

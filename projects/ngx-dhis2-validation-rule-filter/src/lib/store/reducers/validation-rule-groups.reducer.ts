@@ -1,4 +1,8 @@
 import * as fromActions from '../actions/validation-rule-groups.action';
+import * as fromHelper from '../../helpers';
+import * as fromModel from '../../models';
+
+
 export interface ValidationRuleGroupState {
     entities: {[ id: string]: {}};
     loaded: boolean;
@@ -23,9 +27,7 @@ export function reducer(
             };
         }
         case fromActions.LOAD_VALIDATION_RULE_GROUPS_SUCCESS: {
-            // tslint:disable-next-line: no-string-literal
-            const validationRuleGroups = action.payload['validationRuleGroups'];
-            // tslint:disable-next-line: no-shadowed-variable
+            const validationRuleGroups = fromHelper.getAllValidationRuleGroup(action.payload);
             const entities = validationRuleGroups.reduce((entities: {[id: string]: {}}, validationRuleGroup) => ({
                 ...entities,
                 [validationRuleGroup.id]: validationRuleGroup
