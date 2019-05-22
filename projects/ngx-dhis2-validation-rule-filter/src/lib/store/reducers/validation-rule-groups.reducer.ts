@@ -28,6 +28,7 @@ export function reducer(
         }
         case fromActions.LOAD_VALIDATION_RULE_GROUPS_SUCCESS: {
             const validationRuleGroups = fromHelper.getAllValidationRuleGroup(action.payload);
+            // tslint:disable-next-line: no-shadowed-variable
             const entities = validationRuleGroups.reduce((entities: {[id: string]: {}}, validationRuleGroup) => ({
                 ...entities,
                 [validationRuleGroup.id]: validationRuleGroup

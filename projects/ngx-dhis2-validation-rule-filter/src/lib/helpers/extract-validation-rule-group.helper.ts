@@ -6,7 +6,6 @@ export function getAllValidationRuleGroup(validationRule: fromModel.APIResult) {
     if (validationRules.length !== 0) {
         const validationRuleGroup = validationRules.map((validationRuleItem: fromModel.ValidationRule) => {
             return validationRuleItem.validationRuleGroups.map((data) => {
-                console.log('VALIDATION RULE GROUP::: ', JSON.stringify(data));
                 return data;
             });
         });
@@ -20,7 +19,7 @@ function sanitizeAllValidationRuleGroup(data: Array<Array<{}>>) {
     if (datas) {
         datas.forEach((dataArray: Array<{}>) => {
             dataArray.forEach((dataItem) => {
-                if(dataItem) {
+                if (dataItem) {
                     if (!allValidationRuleGroup.includes(dataItem)) {
                         allValidationRuleGroup.push(dataItem);
                     }
