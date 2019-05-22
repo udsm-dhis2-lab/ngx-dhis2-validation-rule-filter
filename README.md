@@ -1,68 +1,63 @@
-# NgxDhis2ValidationRuleFilterLibrary
+# Dhis2 Validation Rule Group Filter Library
 
 [![Build Status](https://travis-ci.org/interactive-apps/ngx-dhis2-validation-rule-filter.svg?branch=master)](https://travis-ci.org/interactive-apps/ngx-dhis2-validation-rule-filter)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/interactive-apps/ngx-dhis2-validation-rule-filter/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage)](https://codeclimate.com/github/interactive-apps/ngx-dhis2-validation-rule-filter/test_coverage)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+[![Gitter chat](https://badges.gitter.im/interactive-apps/gitter.png)](https://gitter.im/interactive-apps/community)
+![GitHub](https://img.shields.io/github/license/interactive-apps/ngx-dhis2-validation-rule-filter.svg)
+[![commitizen on stackoverflow](https://img.shields.io/badge/stackoverflow-community-orange.svg?longCache=true&style=flat-square&logo=stackoverflow)](https://stackoverflow.com/tags/dhis-2)
+![npm](https://img.shields.io/npm/v/@iapps/ngx-dhis2-validation-rule-group-filter.svg)
+![GitHub All Releases](https://img.shields.io/github/downloads/interactive-apps/ngx-dhis2-validation-rule-filter/total.svg)
+![GitHub issues](https://img.shields.io/github/issues/interactive-apps/ngx-dhis2-validation-rule-filter.svg)
+![GitHub closed issues](https://img.shields.io/github/issues-closed/interactive-apps/ngx-dhis2-validation-rule-filter.svg)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/interactive-apps/ngx-dhis2-validation-rule-filter.svg)
+## Introduction
 
+Dhis2 Validation Rule Group(DVRG) is a user interface component library for developing [DHIS2](http://www.dhis2.org/) applications. DHIS2 Team from UDSM uses and maintain this component to ensure visual and usability consistency where it is used in the process of developing different DHIS2 web application.
+
+## Features
+- Fetching all the validation rules group from the [DHIS2](http://www.dhis2.org/) Instance where the you have installed the Web app you are developing and use this library as part of it.
+- Give support to use to select the validation rule group available withing the instance and proceed with the analysis process.
+- Give support to De-select the validation rule group if it wrong selection.
+- It give support to select and de-select all the selection i.e validation rule group all at once.
+
+
+## Information
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
 
-## Development server
-
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
-
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
-
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/interactive-apps/ngx-dhis2-validation-rule-filter/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Quickstart Guide
 
-### Markdown
+### Installation
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+    npm install @iapps/ngx-dhis2-validation-rule-filter
 
-```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
+### How to use
+After installation you can use the following tags to start using it in your project.
 
-- Bulleted
-- List
+    <lib-ngx-dhis2-validation-rule-
+        [dataSelection]='dataElements' 
+        (update)="onUpdateValidationRule($event)"
+        (close)="onUpdateValidationRule($event)">
+    <lib-ngx-dhis2-validation-rule-filter>
 
-1. Numbered
-2. List
 
-**Bold** and _Italic_ and `Code` text
+## Versioning
+> Current version of this build of **Dhis2 Validation Rule Group Filter Library**
 
-[Link](url) and ![Image](src)
-```
+![GitHub package.json version](https://img.shields.io/github/package-json/v/interactive-apps/ngx-dhis2-validation-rule-filter.svg)
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+## Licence
+![GitHub](https://img.shields.io/github/license/interactive-apps/ngx-dhis2-validation-rule-filter.svg)
 
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/interactive-apps/ngx-dhis2-validation-rule-filter/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
