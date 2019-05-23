@@ -1,6 +1,6 @@
 import * as _ from 'lodash';
 
-export function generateValidationRuleAPI (dataElementUID: string[]) {
+export function generateValidationRuleAPI(dataElementUID: string[]) {
     const sanitizedDataElementUID = dataElementUID || [];
     if (sanitizedDataElementUID.length !== 0) {
         const validationRuleParameters = [
@@ -18,7 +18,7 @@ export function generateValidationRuleAPI (dataElementUID: string[]) {
         const mapResult = _.map(sanitizedDataElementUID, (UID) => {
             return `filter=leftSide.expression:ilike:${UID}&filter=rightSide.expression:ilike:${UID}`;
         });
-        const postURL = `&rootJunction=OR`;
+        const postURL = `&paging=false&rootJunction=OR`;
         return preURL + mapResult.join('&') + postURL;
     } else {
         return 'validationRuleGroups.json';
