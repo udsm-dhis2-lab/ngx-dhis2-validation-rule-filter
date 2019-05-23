@@ -18,7 +18,7 @@ export function generateValidationRuleAPI (dataElementUID: string[]) {
         const mapResult = _.map(sanitizedDataElementUID, (UID) => {
             return `filter=leftSide.expression:ilike:${UID}&filter=rightSide.expression:ilike:${UID}`;
         });
-        const postURL = `&rootJunction=OR`;
+        const postURL = `&paging=false&rootJunction=OR`;
         return preURL + mapResult.join('&') + postURL;
     } else {
         return 'validationRuleGroups.json';
