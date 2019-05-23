@@ -15,7 +15,7 @@ export function getAllValidationRuleGroup(apiResult: fromModel.APIResult) {
             return [];
         }
     } else if (apiResult.hasOwnProperty('validationRuleGroups')) {
-        const test = apiResult.validationRuleGroups.map((validationRuleGroup) => {
+        return apiResult.validationRuleGroups.map((validationRuleGroup) => {
             if (validationRuleGroup.displayName) {
                 return {
                     id: validationRuleGroup.id,
