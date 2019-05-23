@@ -1,15 +1,30 @@
 import * as fromModel from '../models';
 import * as _ from 'lodash';
 
-export function getAllValidationRuleGroup(validationRule: fromModel.APIResult) {
-    const validationRules = validationRule.validationRules || [];
-    if (validationRules.length !== 0) {
-        const validationRuleGroup = validationRules.map((validationRuleItem: fromModel.ValidationRule) => {
-            return validationRuleItem.validationRuleGroups.map((data) => {
-                return data;
+export function getAllValidationRuleGroup(apiResult: fromModel.APIResult) {
+    if (apiResult.hasOwnProperty('validationRules')) {
+        const validationRules = apiResult.validationRules || [];
+        if (validationRules.length !== 0) {
+            const validationRuleGroup = validationRules.map((validationRuleItem: fromModel.ValidationRule) => {
+                return validationRuleItem.validationRuleGroups.map((data) => {
+                    return data;
+                });
             });
+            return _.unionWith(sanitizeAllValidationRuleGroup(validationRuleGroup), _.isEqual);
+        } else {
+            return [];
+        }
+    } else if (apiResult.hasOwnProperty('validationRuleGroups')) {
+        const test = apiResult.validationRuleGroups.map((validationRuleGroup) => {
+            if (validationRuleGroup.displayName) {
+                return {
+                    id: validationRuleGroup.id,
+                    name: validationRuleGroup.displayName
+                };
+            }
         });
-        return _.unionWith(sanitizeAllValidationRuleGroup(validationRuleGroup), _.isEqual);
+    } else {
+        return [];
     }
 }
 
