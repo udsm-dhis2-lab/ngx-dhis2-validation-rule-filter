@@ -1,6 +1,6 @@
 import * as _ from 'lodash';
 
-export function generateValidationRuleAPI (dataElementUID: string[]) {
+export function generateValidationRuleAPI(dataElementUID: string[]) {
     const sanitizedDataElementUID = dataElementUID || [];
     if (sanitizedDataElementUID.length !== 0) {
         const validationRuleParameters = [
