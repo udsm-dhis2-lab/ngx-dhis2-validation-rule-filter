@@ -22,32 +22,65 @@ Dhis2 Validation Rule Group(DVRG) is a user interface component library for deve
 - Give support to De-select the validation rule group if it wrong selection.
 - It give support to select and de-select all the selection i.e validation rule group all at once.
 
-
-## Information
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
-
 ## Quickstart Guide
 
-### Installation
+### Prerequisite Requirements
+Install the following dependencies withing your project before starting using the following library.
 
-    npm install @iapps/ngx-dhis2-validation-rule-filter
+ - NgRx Store v7.4.0 or Higher- [@ngrx/store](https://www.npmjs.com/package/@ngrx/store)
+ - NgRx Effects v7.4.0 or Higher- [@ngrx/effects](https://www.npmjs.com/package/@ngrx/effects)
+- DHIS2 Http Client library
+ v2.0.2 or Higher - [@hisptz/ngx-dhis2-http-client](https://www.npmjs.com/package/@ngrx/effects)
+- RxJS: Reactive Extensions For JavaScript v6.5.2 or Higher - [rxjs](https://www.npmjs.com/package/rxjs)
+- Dhis2 Validation Rule Group Filter Library
+ v1.0.0-alpha.4 or Higher - [@iapps/ngx-dhis2-validation-rule-group-filter
+](@iapps/ngx-dhis2-validation-rule-group-filter
+)
 
+### Installation Commands
+    npm i @ngrx/store@7.4.0
+
+    npm i @ngrx/effects@7.4.0
+
+    npm i rxjs@6.5.2
+
+    npm i --save lodash@4.17.11
+
+    npm i @hisptz/ngx-dhis2-http-client@2.0.2
+
+    npm i @iapps/ngx-dhis2-validation-rule-group-filter@1.0.0-alpha.5
+
+
+### Installation Procedure
+Import **StoreModule**, **EffectsModule** and **HttpClientModule** to the appModule.ts. Below is an example of configuration for a fresh project, but if you have already done installation based on your configuration the follow all along to see what is need to be added to make installation successfully
+
+    import { StoreModule } from '@ngrx/store';
+    import { EffectsModule } from '@ngrx/effects';
+    import { HttpClientModule } from '@angular/common/http';
+    import { NgxDhis2ValidationRuleFilterModule } from '@iapps/ngx-dhis2-validation-rule-group-filter';
+
+    @NgModule({
+        declarations: [
+        AppComponent,
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        StoreModule.forRoot({}),
+        EffectsModule.forRoot([]),
+        HttpClientModule,
+        NgxDhis2ValidationRuleFilterModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
+    })
+    export class AppModule { }
 
 ### How to use
 After installation you can use the following tags to start using it in your project.
 
     <lib-ngx-dhis2-validation-rule-
-        [dataSelection]='dataElements' 
+        [dataSelection]='dataSelections' 
         (update)="onUpdateValidationRule($event)"
         (close)="onUpdateValidationRule($event)">
     <lib-ngx-dhis2-validation-rule-filter>
@@ -60,4 +93,16 @@ After installation you can use the following tags to start using it in your proj
 
 ## Licence
 ![GitHub](https://img.shields.io/github/license/interactive-apps/ngx-dhis2-validation-rule-filter.svg)
+
+## Information
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
