@@ -39,12 +39,15 @@
                 <lib-progress-loader [loadingSize]="'large'" [loadingMessage]="loadingMessage"></lib-progress-loader>
             </div>
             <div>
-                <ul class="validation-rule-group-list">
+                <ul *ngIf="(loaded$ | async) && availableValidationRuleGroups.length !== 0" class="validation-rule-group-list">
                     <li *ngFor="let availableValidationRuleGroup of availableValidationRuleGroups">
                         <a (click)="onSelectValidationRuleGroup(availableValidationRuleGroup, $event)">
                             {{ availableValidationRuleGroup.name }}
                         </a>
                     </li>
+                </ul>
+                <ul *ngIf="(loaded$ | async) && availableValidationRuleGroups.length === 0" class="validation-rule-group-list">
+                    <span>Oops! No validation rule group that match your selection(s)</span>
                 </ul>
             </div>
         </div>

@@ -27,15 +27,17 @@ Dhis2 Validation Rule Group(DVRG) is a user interface component library for deve
 ### Prerequisite Requirements
 Install the following dependencies withing your project before starting using the following library.
 
- - NgRx Store v7.4.0 or Higher- [@ngrx/store](https://www.npmjs.com/package/@ngrx/store)
- - NgRx Effects v7.4.0 or Higher- [@ngrx/effects](https://www.npmjs.com/package/@ngrx/effects)
+- NgRx Store v7.4.0 or Higher- [@ngrx/store](https://www.npmjs.com/package/@ngrx/store)
+- NgRx Effects v7.4.0 or Higher- [@ngrx/effects](https://www.npmjs.com/package/@ngrx/effects)
+- RxJS: Reactive Extensions For JavaScript v6.5.2 or Higher - [rxjs](https://www.npmjs.com/package/rxjs)
+- lodash v4.17.11
+ or Higher- [lodash v4.17.11
+](https://www.npmjs.com/package/lodash)
 - DHIS2 Http Client library
  v2.0.2 or Higher - [@hisptz/ngx-dhis2-http-client](https://www.npmjs.com/package/@ngrx/effects)
-- RxJS: Reactive Extensions For JavaScript v6.5.2 or Higher - [rxjs](https://www.npmjs.com/package/rxjs)
 - Dhis2 Validation Rule Group Filter Library
- v1.0.0-alpha.4 or Higher - [@iapps/ngx-dhis2-validation-rule-group-filter
-](@iapps/ngx-dhis2-validation-rule-group-filter
-)
+ v1.0.0-alpha.6 or Higher - [@iapps/ngx-dhis2-validation-rule-group-filter
+](https://www.npmjs.com/package/@iapps/ngx-dhis2-validation-rule-group-filter)
 
 ### Installation Commands
     npm i @ngrx/store@7.4.0
@@ -48,7 +50,7 @@ Install the following dependencies withing your project before starting using th
 
     npm i @hisptz/ngx-dhis2-http-client@2.0.2
 
-    npm i @iapps/ngx-dhis2-validation-rule-group-filter@1.0.0-alpha.5
+    npm i @iapps/ngx-dhis2-validation-rule-group-filter@1.0.0-alpha.6
 
 
 ### Installation Procedure
@@ -79,7 +81,7 @@ Import **StoreModule**, **EffectsModule** and **HttpClientModule** to the appMod
 ### How to use
 After installation you can use the following tags to start using it in your project.
 
-    <lib-ngx-dhis2-validation-rule-
+    <lib-ngx-dhis2-validation-rule-filter
         [dataSelection]='dataSelections' 
         (update)="onUpdateValidationRule($event)"
         (close)="onUpdateValidationRule($event)">
