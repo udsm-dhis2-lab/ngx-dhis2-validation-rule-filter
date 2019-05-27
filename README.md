@@ -1,5 +1,5 @@
 # Dhis2 Validation Rule Group Filter Library
-
+[![CircleCI](https://circleci.com/gh/interactive-apps/ngx-dhis2-validation-rule-filter.svg?style=svg)](https://circleci.com/gh/interactive-apps/ngx-dhis2-validation-rule-filter)
 [![Build Status](https://travis-ci.org/interactive-apps/ngx-dhis2-validation-rule-filter.svg?branch=master)](https://travis-ci.org/interactive-apps/ngx-dhis2-validation-rule-filter)
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/interactive-apps/ngx-dhis2-validation-rule-filter/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage)](https://codeclimate.com/github/interactive-apps/ngx-dhis2-validation-rule-filter/test_coverage)
