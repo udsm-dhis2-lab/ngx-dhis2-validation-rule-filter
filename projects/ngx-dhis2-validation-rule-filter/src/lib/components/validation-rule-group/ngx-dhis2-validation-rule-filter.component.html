@@ -40,7 +40,7 @@
 
     <div class="validation-rule-group-body">
         <div class="validation-rule-group-available-body">
-            <div *ngIf="availableValidationRuleGroups.length === 0" style='text-align: center'>
+            <div *ngIf="availableValidationRuleGroups.length === 0 && !(loaded$ | async)" style='text-align: center'>
                 <!-- <lib-progress-loader [loadingSize]="'large'" [loadingMessage]="loadingMessage"></lib-progress-loader> -->
                 <lib-loading></lib-loading>
             </div>
