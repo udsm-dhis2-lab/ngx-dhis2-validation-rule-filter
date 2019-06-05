@@ -137,7 +137,9 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
 
     getValidationRuleSelection = () => {
         return {
-            selectedValidationRuleGroup: this.selectedValidationRuleGroups,
+            items: this.selectedValidationRuleGroups,
+            dimension: 'unknown',
+            changed: true
         };
     }
 
