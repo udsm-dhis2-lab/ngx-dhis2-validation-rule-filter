@@ -8,11 +8,13 @@ import { ProgressLoaderComponent } from './components/progress-loader/progress-l
 import { ValidationRuleGroupEffects } from './store/effects/validation-rule-groups.effects';
 import { reducer } from './store/reducers/validation-rule-groups.reducers';
 import { NgxDhis2ValidationRuleFilterService } from './services/ngx-dhis2-validation-rule-filter.service';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
     NgxDhis2ValidationRuleFilterComponent,
     ProgressLoaderComponent,
+    LoadingComponent,
   ],
   imports: [
     CommonModule,

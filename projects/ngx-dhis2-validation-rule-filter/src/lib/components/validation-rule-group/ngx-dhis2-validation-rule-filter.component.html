@@ -19,7 +19,7 @@
 
     <div class="validation-rule-group-header">
         <div class="validation-rule-group-available-header">
-            <span title="Available Validation Rule Group" class="badge badge-success validation-rule-group-badge">{{ availableValidationRuleGroups.length }}
+            <span title="Available Validation Rule Group" class="badge badge-primary validation-rule-group-badge">{{ availableValidationRuleGroups.length }}
                 Available</span>
             <button title="Select All Validation Rule Group" class="btn btn-sm btn-light"
                 [disabled]="availableValidationRuleGroups.length === 0"
@@ -33,15 +33,16 @@
                 (click)="onDeselectAllValidationRuleGroup($event)">
                 &laquo;
             </button>
-            <span title="Selected Validation Rule Group" class="badge badge-primary validation-rule-group-badge">{{ selectedValidationRuleGroups.length }}
+            <span title="Selected Validation Rule Group" class="badge badge-success validation-rule-group-badge">{{ selectedValidationRuleGroups.length }}
                 Selected</span>
         </div>
     </div>
 
     <div class="validation-rule-group-body">
         <div class="validation-rule-group-available-body">
-            <div *ngIf="(loading$ | async)" style='text-align: center'>
-                <lib-progress-loader [loadingSize]="'large'" [loadingMessage]="loadingMessage"></lib-progress-loader>
+            <div *ngIf="!(loaded$ | async)" style='text-align: center'>
+                <!-- <lib-progress-loader [loadingSize]="'large'" [loadingMessage]="loadingMessage"></lib-progress-loader> -->
+                <lib-loading></lib-loading>
             </div>
             <div>
                 <ul *ngIf="(loaded$ | async) && availableValidationRuleGroups.length !== 0"
