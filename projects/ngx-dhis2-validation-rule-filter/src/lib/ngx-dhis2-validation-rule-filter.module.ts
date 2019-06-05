@@ -1,21 +1,25 @@
 import { NgModule } from '@angular/core';
 import { NgxDhis2ValidationRuleFilterComponent } from './components/validation-rule-group/ngx-dhis2-validation-rule-filter.component';
 import { CommonModule } from '@angular/common';
-
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { reducers, effects } from './store';
 import { ProgressLoaderComponent } from './components/progress-loader/progress-loader.component';
 
-
+import { ValidationRuleGroupEffects } from './store/effects/validation-rule-groups.effects';
+import { reducer } from './store/reducers/validation-rule-groups.reducers';
+import { NgxDhis2ValidationRuleFilterService } from './services/ngx-dhis2-validation-rule-filter.service';
 
 @NgModule({
-  declarations: [NgxDhis2ValidationRuleFilterComponent, ProgressLoaderComponent],
+  declarations: [
+    NgxDhis2ValidationRuleFilterComponent,
+    ProgressLoaderComponent,
+  ],
   imports: [
     CommonModule,
-    StoreModule.forFeature('validationRuleGroups', reducers),
-    EffectsModule.forFeature(effects)
+    StoreModule.forFeature('validationRuleGroups', reducer),
+    EffectsModule.forFeature([ValidationRuleGroupEffects]),
   ],
-  exports: [NgxDhis2ValidationRuleFilterComponent]
+  exports: [NgxDhis2ValidationRuleFilterComponent],
+  providers: [NgxDhis2ValidationRuleFilterService],
 })
 export class NgxDhis2ValidationRuleFilterModule { }
