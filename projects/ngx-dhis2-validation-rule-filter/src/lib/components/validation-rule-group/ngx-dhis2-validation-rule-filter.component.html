@@ -21,15 +21,20 @@
         <div class="validation-rule-group-available-header">
             <span class="badge badge-secondary validation-rule-group-badge">{{ availableValidationRuleGroups.length }}
                 Available</span>
-            <button title="Select all validation rule group" class="btn btn-sm btn-light" [disabled]="availableValidationRuleGroups.length === 0" (click)="onSelectAllValidationRuleGroup($event)">
+            <button title="Select all validation rule group" class="btn btn-sm btn-light"
+                [disabled]="availableValidationRuleGroups.length === 0"
+                (click)="onSelectAllValidationRuleGroup($event)">
                 &raquo;
             </button>
         </div>
         <div class="validation-rule-group-selected-header">
-            <button title="Unselect all validation rule group" class="btn btn-sm btn-light"  [disabled]="selectedValidationRuleGroups.length === 0" (click)="onDeselectAllValidationRuleGroup($event)">
+            <button title="Unselect all validation rule group" class="btn btn-sm btn-light"
+                [disabled]="selectedValidationRuleGroups.length === 0"
+                (click)="onDeselectAllValidationRuleGroup($event)">
                 &laquo;
             </button>
-            <span class="badge badge-primary validation-rule-group-badge">{{ selectedValidationRuleGroups.length }} Selected</span>
+            <span class="badge badge-primary validation-rule-group-badge">{{ selectedValidationRuleGroups.length }}
+                Selected</span>
         </div>
     </div>
 
@@ -39,12 +44,17 @@
                 <lib-progress-loader [loadingSize]="'large'" [loadingMessage]="loadingMessage"></lib-progress-loader>
             </div>
             <div>
-                <ul class="validation-rule-group-list">
+                <ul *ngIf="(loaded$ | async) && availableValidationRuleGroups.length !== 0"
+                    class="validation-rule-group-list">
                     <li *ngFor="let availableValidationRuleGroup of availableValidationRuleGroups">
                         <a (click)="onSelectValidationRuleGroup(availableValidationRuleGroup, $event)">
-                            {{ availableValidationRuleGroup.displayName }}
+                            {{ availableValidationRuleGroup.name }}
                         </a>
                     </li>
+                </ul>
+                <ul *ngIf="(loaded$ | async) && availableValidationRuleGroups.length === 0"
+                    class="validation-rule-group-list">
+                    <span>Oops! No validation rule group that match your selection(s)</span>
                 </ul>
             </div>
         </div>
@@ -53,7 +63,7 @@
                 <ul class="validation-rule-group-list">
                     <li *ngFor="let selectedValidationRuleGroup of selectedValidationRuleGroups">
                         <a (click)="onDeselectValidationRuleGroup(selectedValidationRuleGroup, $event)">
-                            {{ selectedValidationRuleGroup.displayName }}
+                            {{ selectedValidationRuleGroup.name }}
                         </a>
                     </li>
                 </ul>
@@ -64,7 +74,8 @@
     <div class="validation-rule-group-filter-btns">
         <div>
             <button class="btn btn-light btn-sm" (click)="onClose($event)">CLOSE</button>&nbsp;
-            <button class="btn btn-light btn-sm" (click)="onUpdate($event)" [disabled]="selectedValidationRuleGroups.length === 0">UPDATE </button>
+            <button class="btn btn-light btn-sm" (click)="onUpdate($event)"
+                [disabled]="selectedValidationRuleGroups.length === 0">UPDATE </button>
         </div>
     </div>
 </div>
