@@ -29,6 +29,7 @@
     "@ngrx/entity": "^7.4.0",
     "@ngrx/store": "^7.4.0",
     "bootstrap": "^4.3.1",
+    "commitizen": "^3.1.1",
     "core-js": "^2.6.5",
     "docdash": "^1.1.0",
     "ngx-dhis2-http-client": "^1.0.2",
