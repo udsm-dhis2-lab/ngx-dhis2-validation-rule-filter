@@ -1,20 +1,19 @@
 # Dhis2 Validation Rule Group Filter Library
-[![CircleCI](https://circleci.com/gh/interactive-apps/ngx-dhis2-validation-rule-filter.svg?style=svg)](https://circleci.com/gh/interactive-apps/ngx-dhis2-validation-rule-filter)
-[![Build Status](https://travis-ci.org/interactive-apps/ngx-dhis2-validation-rule-filter.svg?branch=master)](https://travis-ci.org/interactive-apps/ngx-dhis2-validation-rule-filter)
-[![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/interactive-apps/ngx-dhis2-validation-rule-filter/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage)](https://codeclimate.com/github/interactive-apps/ngx-dhis2-validation-rule-filter/test_coverage)
+[![CircleCI](https://circleci.com/gh/hisptz/ngx-dhis2-validation-rule-filter.svg?style=svg)](https://circleci.com/gh/hisptz/ngx-dhis2-validation-rule-filter)
+[![Build Status](https://travis-ci.org/hisptz/ngx-dhis2-validation-rule-filter.svg?branch=master)](https://travis-ci.org/hisptz/ngx-dhis2-validation-rule-filter)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/hisptz/ngx-dhis2-validation-rule-filter/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage)](https://codeclimate.com/github/hisptz/ngx-dhis2-validation-rule-filter/test_coverage)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
-[![Gitter chat](https://badges.gitter.im/interactive-apps/gitter.png)](https://gitter.im/interactive-apps/community)
-![GitHub](https://img.shields.io/github/license/interactive-apps/ngx-dhis2-validation-rule-filter.svg)
+[![Gitter chat](https://badges.gitter.im/hisptz/gitter.png)](https://gitter.im/hisptz/community)
+![GitHub](https://img.shields.io/github/license/hisptz/ngx-dhis2-validation-rule-filter.svg)
 [![commitizen on stackoverflow](https://img.shields.io/badge/stackoverflow-community-orange.svg?longCache=true&style=flat-square&logo=stackoverflow)](https://stackoverflow.com/tags/dhis-2)
 ![npm](https://img.shields.io/npm/v/@iapps/ngx-dhis2-validation-rule-group-filter.svg)
-![GitHub All Releases](https://img.shields.io/github/downloads/interactive-apps/ngx-dhis2-validation-rule-filter/total.svg)
-![GitHub issues](https://img.shields.io/github/issues/interactive-apps/ngx-dhis2-validation-rule-filter.svg)
-![GitHub closed issues](https://img.shields.io/github/issues-closed/interactive-apps/ngx-dhis2-validation-rule-filter.svg)
-![GitHub package.json version](https://img.shields.io/github/package-json/v/interactive-apps/ngx-dhis2-validation-rule-filter.svg)
-
-
+![GitHub All Releases](https://img.shields.io/github/downloads/hisptz/ngx-dhis2-validation-rule-filter/total.svg)
+![GitHub issues](https://img.shields.io/github/issues/hisptz/ngx-dhis2-validation-rule-filter.svg)
+![GitHub closed issues](https://img.shields.io/github/issues-closed/hisptz/ngx-dhis2-validation-rule-filter.svg)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/hisptz/ngx-dhis2-validation-rule-filter.svg)
 ## Introduction
+
 Dhis2 Validation Rule Group(DVRG) is a user interface component library for developing [DHIS2](http://www.dhis2.org/) applications. DHIS2 Team from UDSM uses and maintain this component to ensure visual and usability consistency where it is used in the process of developing different DHIS2 web application.
 
 ## Features
@@ -28,13 +27,13 @@ Dhis2 Validation Rule Group(DVRG) is a user interface component library for deve
 ### Prerequisite Requirements
 Install the following dependencies withing your project before starting using the following library.
 
- - NgRx Store v7.4.0 or Higher- [@ngrx/store](https://www.npmjs.com/package/@ngrx/store)
- - NgRx Effects v7.4.0 or Higher- [@ngrx/effects](https://www.npmjs.com/package/@ngrx/effects)
- - RxJS: Reactive Extensions For JavaScript v6.5.2 or Higher - [rxjs](https://www.npmjs.com/package/rxjs)
- - lodash v4.17.11
+- NgRx Store v7.4.0 or Higher- [@ngrx/store](https://www.npmjs.com/package/@ngrx/store)
+- NgRx Effects v7.4.0 or Higher- [@ngrx/effects](https://www.npmjs.com/package/@ngrx/effects)
+- RxJS: Reactive Extensions For JavaScript v6.5.2 or Higher - [rxjs](https://www.npmjs.com/package/rxjs)
+- lodash v4.17.11
  or Higher- [lodash v4.17.11
 ](https://www.npmjs.com/package/lodash)
- - DHIS2 Http Client library
+- DHIS2 Http Client library
  v2.0.2 or Higher - [@hisptz/ngx-dhis2-http-client](https://www.npmjs.com/package/@ngrx/effects)
 - Dhis2 Validation Rule Group Filter Library
  v1.0.0-alpha.6 or Higher - [@iapps/ngx-dhis2-validation-rule-group-filter
@@ -88,10 +87,33 @@ After installation you can use the following tags to start using it in your proj
         (close)="onUpdateValidationRule($event)">
     <lib-ngx-dhis2-validation-rule-filter>
 
-## Versioning
-> Current version of this build of **Dhis2 Validation Rule Group Filter Library**
+### Output Emmitted
+#### Template of the OUTPUT Emmitted after clicking the UPDATE or CANCEL button:
+    items: []
+    periodTypes: []
+    dimensions: "vrg"
+    change: true
 
-![GitHub package.json version](https://img.shields.io/github/package-json/v/interactive-apps/ngx-dhis2-validation-rule-filter.svg)
+#### Example of the output Emmitted after clicking the UPDATE or CANCEL button:
+
+    items: [
+        {
+            id: "odiGzVETtQQ",
+            name: "Form: National Malaria control program"
+        }
+    ]
+    periodTypes: [
+        "Monthly"
+    ]
+    dimensions: "vrg"
+    change: true
+
+
+## Contributions
+[![](https://sourcerer.io/fame/waltervfaustine/interactive-apps/ngx-dhis2-validation-rule-filter/images/0)](https://sourcerer.io/fame/waltervfaustine/interactive-apps/ngx-dhis2-validation-rule-filter/links/0)[![](https://sourcerer.io/fame/waltervfaustine/interactive-apps/ngx-dhis2-validation-rule-filter/images/1)](https://sourcerer.io/fame/waltervfaustine/interactive-apps/ngx-dhis2-validation-rule-filter/links/1)[![](https://sourcerer.io/fame/waltervfaustine/interactive-apps/ngx-dhis2-validation-rule-filter/images/2)](https://sourcerer.io/fame/waltervfaustine/interactive-apps/ngx-dhis2-validation-rule-filter/links/2)[![](https://sourcerer.io/fame/waltervfaustine/interactive-apps/ngx-dhis2-validation-rule-filter/images/3)](https://sourcerer.io/fame/waltervfaustine/interactive-apps/ngx-dhis2-validation-rule-filter/links/3)[![](https://sourcerer.io/fame/waltervfaustine/interactive-apps/ngx-dhis2-validation-rule-filter/images/4)](https://sourcerer.io/fame/waltervfaustine/interactive-apps/ngx-dhis2-validation-rule-filter/links/4)[![](https://sourcerer.io/fame/waltervfaustine/interactive-apps/ngx-dhis2-validation-rule-filter/images/5)](https://sourcerer.io/fame/waltervfaustine/interactive-apps/ngx-dhis2-validation-rule-filter/links/5)[![](https://sourcerer.io/fame/waltervfaustine/interactive-apps/ngx-dhis2-validation-rule-filter/images/6)](https://sourcerer.io/fame/waltervfaustine/interactive-apps/ngx-dhis2-validation-rule-filter/links/6)[![](https://sourcerer.io/fame/waltervfaustine/interactive-apps/ngx-dhis2-validation-rule-filter/images/7)](https://sourcerer.io/fame/waltervfaustine/hisptz/ngx-dhis2-validation-rule-filter/links/7)
 
 ## Licence
-![GitHub](https://img.shields.io/github/license/interactive-apps/ngx-dhis2-validation-rule-filter.svg)
+![GitHub](https://img.shields.io/github/license/hisptz/ngx-dhis2-validation-rule-filter.svg?style=for-the-badge)
+
+
+
