@@ -87,7 +87,26 @@ After installation you can use the following tags to start using it in your proj
         (close)="onUpdateValidationRule($event)">
     <lib-ngx-dhis2-validation-rule-filter>
 
+### Output Emmitted
+#### Template of the OUTPUT Emmitted after clicking the UPDATE or CANCEL button:
+    items: []
+    periodTypes: []
+    dimensions: "vrg"
+    change: true
 
+#### Example of the output Emmitted after clicking the UPDATE or CANCEL button:
+
+    items: [
+        {
+            id: "odiGzVETtQQ",
+            name: "Form: National Malaria control program"
+        }
+    ]
+    periodTypes: [
+        "Monthly"
+    ]
+    dimensions: "vrg"
+    change: true
 
 
 ## Contributions
