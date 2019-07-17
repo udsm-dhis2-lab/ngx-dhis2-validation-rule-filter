@@ -14,10 +14,20 @@ export function getAllValidationRuleGroup(apiResult: APIResult) {
                     });
                 }
             );
-            return _.unionWith(
-                sanitizeAllValidationRuleGroup(validationRuleGroup),
-                _.isEqual
+
+            const periodType = validationRules.map(
+                (validationRuleItem: ValidationRule) => {
+                    return validationRuleItem.periodType;
+                }
             );
+
+            return {
+                validationRuleGroup: _.unionWith(
+                    sanitizeAllValidationRuleGroup(validationRuleGroup),
+                    _.isEqual
+                ),
+                periodType: getSanitizePeriodType(periodType),
+            };
         } else {
             return [];
         }
@@ -33,6 +43,10 @@ export function getAllValidationRuleGroup(apiResult: APIResult) {
     } else {
         return [];
     }
+}
+
+function getSanitizePeriodType(periods: Array<string>) {
+    return _.uniq(periods);
 }
 
 function sanitizeAllValidationRuleGroup(data: Array<Array<{}>>) {
