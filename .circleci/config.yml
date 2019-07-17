@@ -37,5 +37,5 @@ jobs:
           paths:
             - 'node_modules'
 
-      - run: npm run spellcheck
+      # - run: npm run spellcheck
       - run: xvfb-run -a npm test -- code-editor --watch=false
