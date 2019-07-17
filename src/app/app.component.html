@@ -1,52 +1,60 @@
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo"
-    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-
+<header>
+  <app-main-header></app-main-header>
+</header>
 <div class="container-fluid">
   <div class="row" style="margin-top: 30px;">
     <div class="col-12">
       <h4>Validation Rules Group Demo Filter</h4>
-      <p>Demo For DHIS2 Validation Rule Filter</p>
+      <p>Demo Library for the validation rule filter group</p>
     </div>
   </div>
+  <app-main-sub-header></app-main-sub-header>
   <div class="row" style="margin-top: 20px;">
     <div class="col-md-4">
-      <b>INPUTS</b>
+      <!-- <b>INPUTS</b> -->
       <code class="card" style="height: 390px">
         <div class="card-body">
           <div>
-            <!-- <code>CONFIG: {{ periodFilterConfig | json }}</code> -->
-          </div>
-          <div>
+            <form>
+              <div class="form-group">
+                <label style="font-weight: bold;" for="exampleFormControlTextarea1">CONFIGURATIONS: Insert Data Element UID after that Focus Out</label>
+                <textarea #content (change)="getContent(content)" placeholder="Eg: ['UVWXYZ12345']" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              </div>
+            </form>
           </div>
         </div>
       </code>
     </div>
     <div class="col-md-4">
-      <b>VALIDATION RULE FILTER</b>
+      <!-- <b>VALIDATION RULE FILTER</b> -->
       <div class="card">
         <div class="card-body" style="padding: 5px;">
-          <lib-ngx-dhis2-validation-rule-filter [dataSelection]='dataElements' (update)="onUpdateValidationRule($event, 'UPDATE')"
-            (close)="onUpdateValidationRule($event, 'CLOSE')"></lib-ngx-dhis2-validation-rule-filter>
+          <lib-ngx-dhis2-validation-rule-filter [dataSelection]="dataElements"
+            (update)="onUpdateValidationRule($event, 'UPDATE')" (close)="onUpdateValidationRule($event, 'CLOSE')">
+          </lib-ngx-dhis2-validation-rule-filter>
         </div>
       </div>
     </div>
     <div class="col-md-4">
-      <b>OUTPUT</b>
+      <!-- <b>OUTPUT</b> -->
       <code class="card" style="height: 390px; overflow: auto;">
         <div class="card-body">
           <div>
-            <code>ACTION: {{ action }} </code>
+            <div style="font-weight: bold">ACTION: {{ action }}</div>
           </div>
-          <div>
+          <!-- <div>
             <code>PAYLOAD: {{ selectedValidationRuleGroup | json }} </code>
+    </div> -->
+          <div style="background-color: #eee;">
+            <ngx-json-viewer class="editor" [json]="selectedValidationRuleGroup"></ngx-json-viewer>
+            <!-- <json-editor styl="height: 50%" [options]="editorOptions" (change)="setAce()" [data]="selectedValidationRuleGroup"></json-editor> -->
           </div>
         </div>
       </code>
     </div>
   </div>
 </div>
+
+<footer class="footer">
+  <app-main-footer></app-main-footer>
+</footer>

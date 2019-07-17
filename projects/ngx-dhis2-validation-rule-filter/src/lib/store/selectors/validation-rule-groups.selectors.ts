@@ -20,6 +20,11 @@ export const getAllValidationRuleGroups = createSelector(
     validationRuleAdapter.getSelectors().selectAll
 );
 
+export const getValidationRulePeriodTypes = createSelector(
+    getValidationRuleGroupState,
+    (validationRuleGroup: State) => validationRuleGroup.periodType
+);
+
 export const getValidationRuleGroupsLoaded = createSelector(
     getValidationRuleGroupState,
     (validationRuleGroup: State) => validationRuleGroup.loaded
