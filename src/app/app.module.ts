@@ -19,7 +19,6 @@ import { MainHeaderComponent } from './components/main-header/main-header.compon
 import { MainFooterComponent } from './components/main-footer/main-footer.component';
 import { FormsModule } from '@angular/forms';
 
-import { NgJsonEditorModule } from 'ang-jsoneditor';
 import { NgxJsonViewerModule } from 'ngx-json-viewer';
 import { MainSubHeaderComponent } from './components/main-sub-header/main-sub-header.component';
 
@@ -43,7 +42,6 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
     HttpClientModule,
     StoreModule.forRoot({}, { metaReducers }),
     EffectsModule.forRoot([]),
-    NgJsonEditorModule,
     NgxJsonViewerModule
     // environment.development ? StoreDevtoolsModule.instrumentStore() : [],
   ],
