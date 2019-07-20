@@ -9,6 +9,7 @@ import {
   getValidationRuleGroupsLoaded,
   getValidationRuleGroupsLoading,
   getValidationRulePeriodTypes,
+  getValidationRuleGroupsReloaded,
 } from '../../store/selectors/validation-rule-groups.selectors';
 @Component({
   selector: 'lib-ngx-dhis2-validation-rule-filter',
@@ -21,6 +22,7 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
   periodTypes: Array<string>;
   loading$: Observable<boolean>;
   loaded$: Observable<boolean>;
+  reloaded$: Observable<boolean>;
   periodTypes$: Observable<Array<string>>;
 
   loadingMessage;
@@ -29,12 +31,17 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
   @Output() update = new EventEmitter();
   @Output() close = new EventEmitter();
 
-  constructor(
-    private store: Store<State>
-  ) {}
+  constructor(private store: Store<State>) {}
 
   ngOnInit() {
     this.loadingMessage = 'Loading Validation...';
+    this.store.select(getAllValidationRuleGroups);
+    this.reloaded$ = this.store.select(getValidationRuleGroupsReloaded);
+    this.reloaded$.subscribe(status => {
+      if (status) {
+        this.store.dispatch(new LoadValidationRuleGroups(this.dataSelection));
+      }
+    });
     this.store
       .select(getAllValidationRuleGroups)
       .subscribe((state: Array<{ name: string; id: string }>) => {
@@ -42,8 +49,6 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
           ? (this.availableValidationRuleGroups = state)
           : (this.availableValidationRuleGroups = []);
       });
-    this.store.dispatch(new LoadValidationRuleGroups(this.dataSelection));
-    this.store.select(getAllValidationRuleGroups);
     this.loaded$ = this.store.select(getValidationRuleGroupsLoaded);
     this.loading$ = this.store.select(getValidationRuleGroupsLoading);
     this.periodTypes$ = this.store.select(getValidationRulePeriodTypes);
