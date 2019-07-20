@@ -30,6 +30,11 @@ export const getValidationRuleGroupsLoaded = createSelector(
     (validationRuleGroup: State) => validationRuleGroup.loaded
 );
 
+export const getValidationRuleGroupsReloaded = createSelector(
+    getValidationRuleGroupState,
+    (validationRuleGroup: State) => validationRuleGroup.reloaded
+);
+
 export const getValidationRuleGroupsLoading = createSelector(
     getValidationRuleGroupState,
     (validationRuleGroup: State) => validationRuleGroup.loading

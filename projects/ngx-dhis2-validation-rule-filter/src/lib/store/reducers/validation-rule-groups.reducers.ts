@@ -11,6 +11,7 @@ import * as _ from 'lodash';
 export interface State extends EntityState<ValidationRuleGroup> {
     selectedValidationRuleGroup: number | string | null;
     periodType: Array<string>;
+    reloaded: boolean;
     loaded: boolean;
     loading: boolean;
 }
@@ -23,6 +24,7 @@ export const defaultValidationRuleGroupState: State = {
     ids: [],
     entities: {},
     selectedValidationRuleGroup: null,
+    reloaded: false,
     periodType: null,
     loaded: false,
     loading: false,
@@ -50,6 +52,7 @@ export function reducer(state = initialState, action: VRGActionTypes): State {
                 {
                     ...state,
                     periodType: validationRuleGroups.periodType,
+                    reloaded: true,
                     loading: false,
                     loaded: true,
                 }
