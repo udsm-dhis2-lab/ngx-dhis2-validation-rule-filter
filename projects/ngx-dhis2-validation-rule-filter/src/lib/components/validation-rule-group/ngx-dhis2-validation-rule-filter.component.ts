@@ -36,12 +36,7 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
   ngOnInit() {
     this.loadingMessage = 'Loading Validation...';
     this.store.select(getAllValidationRuleGroups);
-    this.reloaded$ = this.store.select(getValidationRuleGroupsReloaded);
-    this.reloaded$.subscribe(status => {
-      if (status) {
-        this.store.dispatch(new LoadValidationRuleGroups(this.dataSelection));
-      }
-    });
+    this.store.dispatch(new LoadValidationRuleGroups(this.dataSelection));
     this.store
       .select(getAllValidationRuleGroups)
       .subscribe((state: Array<{ name: string; id: string }>) => {
