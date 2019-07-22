@@ -29,6 +29,7 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
   periodTypes$: Observable<Array<string>>;
 
   @Input() dataSelection: Array<string>;
+  @Input() selectedVRGs: Array<string>;
   @Output() update = new EventEmitter();
   @Output() close = new EventEmitter();
 
@@ -50,6 +51,13 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
     this.periodTypes$.subscribe((periods: Array<string>) => {
       this.periodTypes = periods;
     });
+
+    if (this.selectedVRGs) {
+      this.selectedValidationRuleGroups = _.uniqBy(
+        [...this.selectedValidationRuleGroups, ...this.selectedVRGs],
+        'id'
+      );
+    }
   }
 
   popValidationRuleGroup = (
@@ -156,10 +164,10 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
     return this.getLowestPeriodType(sortedPeriods)
       ? this.getLowestPeriodType(sortedPeriods)
       : {
-        id: 'Monthly',
-        name: 'Monthly',
-        rank: 3
-      };
+          id: 'Monthly',
+          name: 'Monthly',
+          rank: 3,
+        };
   }
 
   getPeriodTypesBasedOnDataSelection(periods: Array<string>) {
