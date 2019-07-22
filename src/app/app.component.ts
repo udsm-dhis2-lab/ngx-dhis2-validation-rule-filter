@@ -21,11 +21,11 @@ export class AppComponent {
 
   ngOnInit() {
     this.dataElements = [
-      'NQUI9v85csU',
-      'SQ7kqkZkEwV',
-      'Lnf095vgahq',
-      'Lnf095vgahq',
-      'Lnf095vgahq',
+      // 'NQUI9v85csU',
+      // 'SQ7kqkZkEwV',
+      // 'Lnf095vgahq',
+      // 'Lnf095vgahq',
+      // 'Lnf095vgahq',
     ];
 
     this.preSelectedVRGs = [
@@ -33,22 +33,17 @@ export class AppComponent {
         id: 'Lnf095vgahq',
         name: 'PRE Selected VRGs'
       }
-    ]
+    ];
 
     this.selectedValidationRuleGroup = {
       items: [],
       periodType: [],
       dimension: {},
       changed: false
-    }
+    };
   }
 
-  constructor() {
-    this.editorOptions = new JsonEditorOptions();
-    this.editorOptions.modes = ['code'];
-    // this.options.mode = 'code'; //set only one mode
-    // Options to be added here: ['code', 'text', 'tree', 'view']
-  }
+  constructor() { }
 
   onUpdateValidationRule = (selectedValidationRuleGroup, action?) => {
     this.selectedValidationRuleGroup = selectedValidationRuleGroup;
@@ -56,7 +51,6 @@ export class AppComponent {
   }
 
   getContent = (data) => {
-    console.log('BOBO::: ' + JSON.stringify(data.value));
     this.dataElements = [data];
   }
 }
