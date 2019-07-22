@@ -17,8 +17,10 @@
           <div>
             <form>
               <div class="form-group">
-                <label style="font-weight: bold;" for="exampleFormControlTextarea1">CONFIGURATIONS: Insert Data Element UID after that Focus Out</label>
-                <textarea #content (change)="getContent(content)" placeholder="Eg: ['UVWXYZ12345']" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <label style="font-weight: bold;" for="exampleFormControlTextarea1">CONFIGURATIONS: Insert Data Element
+                  UID after that Focus Out</label>
+                <textarea #content (change)="getContent(content)" placeholder="Eg: ['UVWXYZ12345']" class="form-control"
+                  id="exampleFormControlTextarea1" rows="3"></textarea>
               </div>
             </form>
           </div>
@@ -29,7 +31,7 @@
       <!-- <b>VALIDATION RULE FILTER</b> -->
       <div class="card">
         <div class="card-body" style="padding: 5px;">
-          <lib-ngx-dhis2-validation-rule-filter [dataSelection]="dataElements"
+          <lib-ngx-dhis2-validation-rule-filter [dataSelection]="dataElements" [selectedVRGs]="preSelectedVRGs"
             (update)="onUpdateValidationRule($event, 'UPDATE')" (close)="onUpdateValidationRule($event, 'CLOSE')">
           </lib-ngx-dhis2-validation-rule-filter>
         </div>

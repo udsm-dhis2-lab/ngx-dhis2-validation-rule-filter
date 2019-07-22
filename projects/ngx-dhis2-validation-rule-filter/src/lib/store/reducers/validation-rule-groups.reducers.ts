@@ -46,7 +46,6 @@ export function reducer(state = initialState, action: VRGActionTypes): State {
             const validationRuleGroups: ValidationRuleGroupData = _.clone(
                 getAllValidationRuleGroup(action.payload)
             );
-
             return validationRuleAdapter.addAll(
                 validationRuleGroups.validationRuleGroup,
                 {

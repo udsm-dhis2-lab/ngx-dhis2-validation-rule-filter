@@ -12,6 +12,7 @@ export class AppComponent {
   selectedValidationRuleGroup: any;
   action: any;
   dataElements: Array<string>;
+  preSelectedVRGs: Array<{id: string, name: string}>;
 
   editorOptions: JsonEditorOptions;
   initialConfiguration;
@@ -26,6 +27,13 @@ export class AppComponent {
       'Lnf095vgahq',
       'Lnf095vgahq',
     ];
+
+    this.preSelectedVRGs = [
+      {
+        id: 'Lnf095vgahq',
+        name: 'PRE Selected VRGs'
+      }
+    ]
 
     this.selectedValidationRuleGroup = {
       items: [],
