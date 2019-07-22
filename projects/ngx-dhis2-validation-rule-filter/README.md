@@ -82,7 +82,8 @@ Import **StoreModule**, **EffectsModule** and **HttpClientModule** to the appMod
 After installation you can use the following tags to start using it in your project.
 
     <lib-ngx-dhis2-validation-rule-filter
-        [dataSelection]='dataSelections' 
+        [dataSelection]='dataElements' 
+        [selectedVRGs]='preSelectedVRGs'
         (update)="onUpdateValidationRule($event)"
         (close)="onUpdateValidationRule($event)">
     <lib-ngx-dhis2-validation-rule-filter>
