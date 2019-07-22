@@ -21,11 +21,11 @@ export class AppComponent {
 
   ngOnInit() {
     this.dataElements = [
-      // 'NQUI9v85csU',
-      // 'SQ7kqkZkEwV',
-      // 'Lnf095vgahq',
-      // 'Lnf095vgahq',
-      // 'Lnf095vgahq',
+      'NQUI9v85csU',
+      'SQ7kqkZkEwV',
+      'Lnf095vgahq',
+      'Lnf095vgahq',
+      'Lnf095vgahq',
     ];
 
     this.preSelectedVRGs = [
