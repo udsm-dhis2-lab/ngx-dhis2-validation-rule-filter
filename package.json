@@ -1,6 +1,6 @@
 {
   "name": "@iapps/ngx-dhis2-validation-rule-group-filter",
-  "version": "1.0.0-alpha.13",
+  "version": "1.0.0-alpha.14",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxy-config proxy-config.json",
@@ -27,6 +27,7 @@
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
     "@hisptz/ngx-dhis2-http-client": "^2.0.2",
+    "@iapps/function-analytics": "^1.0.0-beta.16",
     "@ngrx/effects": "^8.0.0",
     "@ngrx/entity": "^7.4.0",
     "@ngrx/store": "^8.0.0",
