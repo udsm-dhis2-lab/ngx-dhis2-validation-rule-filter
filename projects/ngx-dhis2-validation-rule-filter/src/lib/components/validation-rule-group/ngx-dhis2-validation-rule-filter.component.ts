@@ -13,7 +13,6 @@ import {
 
 import { Fn } from '@iapps/function-analytics';
 import { PeriodTypes } from '../../models/period-types.model';
-import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'lib-ngx-dhis2-validation-rule-filter',
@@ -99,28 +98,37 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
   onSelectValidationRuleGroup = (validationRuleGroup: any, e) => {
     e.stopPropagation();
 
-    this.selectedValidationRuleGroups = [
-      ...this.selectedValidationRuleGroups,
-      validationRuleGroup,
-    ];
+    this.selectedValidationRuleGroups = _.uniqBy(
+      [...this.selectedValidationRuleGroups, validationRuleGroup],
+      'id'
+    );
 
-    this.availableValidationRuleGroups = this.popValidationRuleGroup(
-      this.availableValidationRuleGroups,
-      validationRuleGroup
+    this.availableValidationRuleGroups = _.uniqBy(
+      this.popValidationRuleGroup(
+        this.availableValidationRuleGroups,
+        validationRuleGroup
+      ),
+      'id'
     );
   }
 
   onDeselectValidationRuleGroup = (validationRuleGroup: any, e) => {
     e.stopPropagation();
 
-    this.selectedValidationRuleGroups = this.popValidationRuleGroup(
-      this.selectedValidationRuleGroups,
-      validationRuleGroup
+    this.selectedValidationRuleGroups = _.uniqBy(
+      this.popValidationRuleGroup(
+        this.selectedValidationRuleGroups,
+        validationRuleGroup
+      ),
+      'id'
     );
 
-    this.availableValidationRuleGroups = this.pushValidationRuleGroup(
-      this.availableValidationRuleGroups,
-      validationRuleGroup
+    this.availableValidationRuleGroups = _.uniqBy(
+      this.pushValidationRuleGroup(
+        this.availableValidationRuleGroups,
+        validationRuleGroup
+      ),
+      'id'
     );
   }
 
@@ -155,7 +163,6 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
 
   getPeriodTypesBasedOnDataSelection(periods: Array<string>) {
     const periodsMappers: Array<PeriodTypes> = new Fn.PeriodType().get();
-    console.log('ALL PERIODS::: ' + JSON.stringify(periodsMappers));
     const filteredPeriodTypes: Array<PeriodTypes> = [];
 
     if (periods) {
@@ -188,15 +195,21 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
   onSelectAllValidationRuleGroup = e => {
     e.stopPropagation();
     if (this.selectedValidationRuleGroups.length > 0) {
-      this.selectedValidationRuleGroups = _.sortBy(
-        [
-          ...this.selectedValidationRuleGroups,
-          ...this.availableValidationRuleGroups,
-        ],
-        ['displayName']
+      this.selectedValidationRuleGroups = _.uniqBy(
+        _.sortBy(
+          [
+            ...this.selectedValidationRuleGroups,
+            ...this.availableValidationRuleGroups,
+          ],
+          ['displayName']
+        ),
+        'id'
       );
     } else {
-      this.selectedValidationRuleGroups = this.availableValidationRuleGroups;
+      this.selectedValidationRuleGroups = _.uniqBy(
+        this.availableValidationRuleGroups,
+        'id'
+      );
     }
     this.availableValidationRuleGroups = [];
   }
@@ -204,15 +217,21 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
   onDeselectAllValidationRuleGroup = e => {
     e.stopPropagation();
     if (this.availableValidationRuleGroups.length > 0) {
-      this.availableValidationRuleGroups = _.sortBy(
-        [
-          ...this.availableValidationRuleGroups,
-          ...this.selectedValidationRuleGroups,
-        ],
-        ['displayName']
+      this.availableValidationRuleGroups = _.uniqBy(
+        _.sortBy(
+          [
+            ...this.availableValidationRuleGroups,
+            ...this.selectedValidationRuleGroups,
+          ],
+          ['displayName']
+        ),
+        'id'
       );
     } else {
-      this.availableValidationRuleGroups = this.selectedValidationRuleGroups;
+      this.availableValidationRuleGroups = _.uniqBy(
+        this.selectedValidationRuleGroups,
+        'id'
+      );
     }
     this.selectedValidationRuleGroups = [];
   }
