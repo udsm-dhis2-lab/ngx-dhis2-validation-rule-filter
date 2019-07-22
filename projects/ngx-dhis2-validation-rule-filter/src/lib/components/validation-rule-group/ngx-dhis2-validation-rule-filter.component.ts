@@ -28,8 +28,6 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
   reloaded$: Observable<boolean>;
   periodTypes$: Observable<Array<string>>;
 
-  loadingMessage;
-
   @Input() dataSelection: Array<string>;
   @Output() update = new EventEmitter();
   @Output() close = new EventEmitter();
@@ -37,7 +35,6 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
   constructor(private store: Store<State>) {}
 
   ngOnInit() {
-    this.loadingMessage = 'Loading Validation...';
     this.store.select(getAllValidationRuleGroups);
     this.store.dispatch(new LoadValidationRuleGroups(this.dataSelection));
     this.store
@@ -158,7 +155,11 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
     const sortedPeriods = this.getSortedPeriodTypes(filteredPeriodTypes);
     return this.getLowestPeriodType(sortedPeriods)
       ? this.getLowestPeriodType(sortedPeriods)
-      : [];
+      : {
+        id: 'Monthly',
+        name: 'Monthly',
+        rank: 3
+      };
   }
 
   getPeriodTypesBasedOnDataSelection(periods: Array<string>) {

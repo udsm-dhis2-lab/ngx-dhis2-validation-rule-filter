@@ -1,6 +1,5 @@
 import { APIResult } from '../models/api-result';
 import { ValidationRule } from '../models/validation-rule';
-
 import * as _ from 'lodash';
 
 export function getAllValidationRuleGroup(apiResult: APIResult) {
@@ -32,14 +31,18 @@ export function getAllValidationRuleGroup(apiResult: APIResult) {
             return [];
         }
     } else if (apiResult.hasOwnProperty('validationRuleGroups')) {
-        return apiResult.validationRuleGroups.map(validationRuleGroup => {
-            if (validationRuleGroup.displayName) {
-                return {
-                    id: validationRuleGroup.id,
-                    name: validationRuleGroup.displayName,
-                };
-            }
-        });
+        return {
+            validationRuleGroup: apiResult.validationRuleGroups.map(
+                validationRuleGroup => {
+                    if (validationRuleGroup.displayName) {
+                        return {
+                            id: validationRuleGroup.id,
+                            name: validationRuleGroup.displayName,
+                        };
+                    }
+                }
+            ),
+        };
     } else {
         return [];
     }
