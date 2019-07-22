@@ -29,7 +29,7 @@ export class AppComponent {
 
     this.selectedValidationRuleGroup = {
       items: [],
-      periodTypes: [],
+      periodType: [],
       dimension: {},
       changed: false
     }
