@@ -113,16 +113,14 @@
 
   <div class="validation-rule-group-filter-btns">
     <div>
-      <button
+      <button mat-stroked-button
         title="Close"
-        class="btn btn-light btn-sm"
         (click)="onClose($event)"
       >
         CLOSE</button
       >&nbsp;
-      <button
+      <button mat-stroked-button
         title="Update"
-        class="btn btn-outline-secondary btn-sm"
         (click)="onUpdate($event)"
         [disabled]="selectedValidationRuleGroups.length === 0"
       >

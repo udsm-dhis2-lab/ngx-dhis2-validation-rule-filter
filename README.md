@@ -90,7 +90,7 @@ After installation you can use the following tags to start using it in your proj
 ### Output Emmitted
 #### Template of the OUTPUT Emmitted after clicking the UPDATE or CANCEL button:
     items: []
-    periodTypes: []
+    periodTypes: {}
     dimensions: "vrg"
     change: true
 
@@ -102,9 +102,11 @@ After installation you can use the following tags to start using it in your proj
             name: "Form: National Malaria control program"
         }
     ]
-    periodTypes: [
-        "Monthly"
-    ]
+    periodTypes: {
+        id: "Monthly"
+        name: "Monthly"
+        rank: 3
+    }
     dimensions: "vrg"
     change: true
 

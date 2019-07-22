@@ -9,8 +9,12 @@ import {
   getValidationRuleGroupsLoaded,
   getValidationRuleGroupsLoading,
   getValidationRulePeriodTypes,
-  getValidationRuleGroupsReloaded,
 } from '../../store/selectors/validation-rule-groups.selectors';
+
+import { Fn } from '@iapps/function-analytics';
+import { PeriodTypes } from '../../models/period-types.model';
+import { filter } from 'rxjs/operators';
+
 @Component({
   selector: 'lib-ngx-dhis2-validation-rule-filter',
   templateUrl: './ngx-dhis2-validation-rule-filter.component.html',
@@ -36,12 +40,7 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
   ngOnInit() {
     this.loadingMessage = 'Loading Validation...';
     this.store.select(getAllValidationRuleGroups);
-    this.reloaded$ = this.store.select(getValidationRuleGroupsReloaded);
-    this.reloaded$.subscribe(status => {
-      if (status) {
-        this.store.dispatch(new LoadValidationRuleGroups(this.dataSelection));
-      }
-    });
+    this.store.dispatch(new LoadValidationRuleGroups(this.dataSelection));
     this.store
       .select(getAllValidationRuleGroups)
       .subscribe((state: Array<{ name: string; id: string }>) => {
@@ -138,10 +137,52 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
   getValidationRuleSelection = () => {
     return {
       items: this.selectedValidationRuleGroups,
-      periodTypes: this.periodTypes,
+      periodType: this.getLeastPossiblePeriod(this.periodTypes),
       dimension: 'vrg',
       changed: true,
     };
+  }
+
+  getLeastPossiblePeriod(periods: Array<string>) {
+    const filteredPeriodTypes = this.getPeriodTypesBasedOnDataSelection(
+      this.periodTypes
+    );
+    const sortedPeriods = this.getSortedPeriodTypes(filteredPeriodTypes);
+    return this.getLowestPeriodType(sortedPeriods)
+      ? this.getLowestPeriodType(sortedPeriods)
+      : [];
+  }
+
+  getPeriodTypesBasedOnDataSelection(periods: Array<string>) {
+    const periodsMappers: Array<PeriodTypes> = new Fn.PeriodType().get();
+    console.log('ALL PERIODS::: ' + JSON.stringify(periodsMappers));
+    const filteredPeriodTypes: Array<PeriodTypes> = [];
+
+    if (periods) {
+      _.forEach(periods, period => {
+        if (period) {
+          _.forEach(periodsMappers, (periodsMapper: PeriodTypes) => {
+            if (periodsMapper.name === period) {
+              filteredPeriodTypes.push(periodsMapper);
+            }
+          });
+          return filteredPeriodTypes ? filteredPeriodTypes : [];
+        }
+      });
+    }
+    return filteredPeriodTypes ? filteredPeriodTypes : [];
+  }
+
+  getSortedPeriodTypes(periods: Array<PeriodTypes>) {
+    if (periods) {
+      return _.orderBy(periods, 'rank', 'asc');
+    }
+  }
+
+  getLowestPeriodType(periods: Array<PeriodTypes>) {
+    if (periods) {
+      return _.first(periods);
+    }
   }
 
   onSelectAllValidationRuleGroup = e => {
