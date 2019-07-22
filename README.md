@@ -1,8 +1,8 @@
 # Dhis2 Validation Rule Group Filter Library
 [![CircleCI](https://circleci.com/gh/hisptz/ngx-dhis2-validation-rule-filter.svg?style=svg)](https://circleci.com/gh/hisptz/ngx-dhis2-validation-rule-filter)
 [![Build Status](https://travis-ci.org/hisptz/ngx-dhis2-validation-rule-filter.svg?branch=master)](https://travis-ci.org/hisptz/ngx-dhis2-validation-rule-filter)
-<a href="https://codeclimate.com/github/interactive-apps/ngx-dhis2-validation-rule-filter/maintainability"><img src="https://api.codeclimate.com/v1/badges/2e960ffcdabbc71df2f5/maintainability" /></a>
-<a href="https://codeclimate.com/github/interactive-apps/ngx-dhis2-validation-rule-filter/test_coverage"><img src="https://api.codeclimate.com/v1/badges/2e960ffcdabbc71df2f5/test_coverage" /></a>
+[![Maintainability](https://api.codeclimate.com/v1/badges/2e960ffcdabbc71df2f5/maintainability)](https://codeclimate.com/github/interactive-apps/ngx-dhis2-validation-rule-filter/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/2e960ffcdabbc71df2f5/test_coverage)](https://codeclimate.com/github/interactive-apps/ngx-dhis2-validation-rule-filter/test_coverage)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![Gitter chat](https://badges.gitter.im/hisptz/gitter.png)](https://gitter.im/hisptz/community)
 ![GitHub](https://img.shields.io/github/license/hisptz/ngx-dhis2-validation-rule-filter.svg)
@@ -117,6 +117,3 @@ After installation you can use the following tags to start using it in your proj
 
 ## Licence
 ![GitHub](https://img.shields.io/github/license/hisptz/ngx-dhis2-validation-rule-filter.svg?style=for-the-badge)
-
-
-
