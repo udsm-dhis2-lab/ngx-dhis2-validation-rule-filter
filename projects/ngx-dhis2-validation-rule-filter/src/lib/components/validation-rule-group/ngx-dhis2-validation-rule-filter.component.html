@@ -1,20 +1,15 @@
 <div class="validation-rule-group-filter-container">
   <div class="validation-rule-group-top-section">
-    <!-- <div class="validation-rule-group-type-section">
-            <select class="form-control form-control-sm pull-left validation-rule-group-type-selection">
-                <option [value]="''" disabled>Select Validation Rule Group</option>
-                <option *ngFor="let validationRuleGroup of validationRuleGroups">{{ validationRuleGroup.displayName }}
-                </option>
-                <option *ngFor="let validationRuleGroup of validationRuleGroups">{{ validationRuleGroup.displayName }}
-                </option>
-            </select>
-        </div>
-        <div class="validation-rule-group-year-section">
-            <div class="btn-group btn-group-sm">
-                <button type="button" class="btn btn-sm btn-outline-secondary">Prev Year</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Next Year</button>
-            </div>
-        </div> -->
+    <div class="validation-rule-group-type-section">
+      <mat-form-field style="width: 100%">
+        <input
+          type="search"
+          matInput
+          placeholder="Search"
+          [(ngModel)]="queryString"
+        />
+      </mat-form-field>
+    </div>
   </div>
 
   <div class="validation-rule-group-header">
@@ -23,7 +18,7 @@
         matTooltip="Available Validation Rule Group"
         [matTooltipPosition]="'after'"
         class="badge badge-secondary validation-rule-group-badge"
-        >{{ availableValidationRuleGroups.length }} Available</span
+        >{{ (availableValidationRuleGroups | filterByName: queryString).length }} Available</span
       >
       <button
         matTooltip="Select All Validation Rule Group"
@@ -71,7 +66,7 @@
             matTooltip="{{ availableValidationRuleGroup.name }}"
             [matTooltipPosition]="'after'"
             *ngFor="
-              let availableValidationRuleGroup of availableValidationRuleGroups
+              let availableValidationRuleGroup of availableValidationRuleGroups | filterByName: queryString
             "
           >
             <a
