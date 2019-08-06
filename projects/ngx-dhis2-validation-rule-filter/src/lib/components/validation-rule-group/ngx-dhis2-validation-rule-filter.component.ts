@@ -23,6 +23,7 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
   selectedValidationRuleGroups: Array<any> = [];
   availableValidationRuleGroups: Array<{ name: string; id: string }>;
   periodTypes: Array<string>;
+  queryString: string;
   loading$: Observable<boolean>;
   loaded$: Observable<boolean>;
   reloaded$: Observable<boolean>;
