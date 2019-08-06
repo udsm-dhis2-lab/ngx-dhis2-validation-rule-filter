@@ -22,6 +22,7 @@ before_install:
   - npm i typescript@3.2.2 --save-dev --save-exact
   - npm i core-js@2.6.5
   - npm update
+  - sudo apt autoremove
   # - ng update
   # - npm i --only=dev
   # - npm uninstall -g @angular/cli
