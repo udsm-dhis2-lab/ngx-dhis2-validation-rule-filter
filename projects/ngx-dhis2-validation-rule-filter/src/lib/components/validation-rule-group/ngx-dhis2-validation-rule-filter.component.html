@@ -20,12 +20,13 @@
   <div class="validation-rule-group-header">
     <div class="validation-rule-group-available-header">
       <span
-        title="Available Validation Rule Group"
+        matTooltip="Available Validation Rule Group"
+        [matTooltipPosition]="'after'"
         class="badge badge-secondary validation-rule-group-badge"
         >{{ availableValidationRuleGroups.length }} Available</span
       >
       <button
-        title="Select All Validation Rule Group"
+        matTooltip="Select All Validation Rule Group"
         class="btn btn-sm btn-light"
         [disabled]="availableValidationRuleGroups.length === 0"
         (click)="onSelectAllValidationRuleGroup($event)"
@@ -35,7 +36,7 @@
     </div>
     <div class="validation-rule-group-selected-header">
       <button
-        title="Unselect All Validation Rule Group"
+        matTooltip="Unselect All Validation Rule Group"
         class="btn btn-sm btn-light"
         [disabled]="selectedValidationRuleGroups.length === 0"
         (click)="onDeselectAllValidationRuleGroup($event)"
@@ -43,7 +44,8 @@
         &laquo;
       </button>
       <span
-        title="Selected Validation Rule Group"
+        matTooltip="Selected Validation Rule Group"
+        [matTooltipPosition]="'before'"
         class="badge badge-primary validation-rule-group-badge"
         >{{ selectedValidationRuleGroups.length }} Selected</span
       >
@@ -66,7 +68,8 @@
           class="validation-rule-group-list"
         >
           <li
-            title="{{ availableValidationRuleGroup.name }}"
+            matTooltip="{{ availableValidationRuleGroup.name }}"
+            [matTooltipPosition]="'after'"
             *ngFor="
               let availableValidationRuleGroup of availableValidationRuleGroups
             "
@@ -89,7 +92,8 @@
       <ul class="validation-rule-group-list">
         <ul class="validation-rule-group-list">
           <li
-            title="{{ selectedValidationRuleGroup.name }}"
+            matTooltip="{{ selectedValidationRuleGroup.name }}"
+            [matTooltipPosition]="'before'"
             *ngFor="
               let selectedValidationRuleGroup of selectedValidationRuleGroups
             "
@@ -113,14 +117,16 @@
 
   <div class="validation-rule-group-filter-btns">
     <div>
-      <button mat-stroked-button
-        title="Close"
+      <button
+        mat-stroked-button
+        matTooltip="Close validation rule filter"
         (click)="onClose($event)"
       >
         Close</button
       >&nbsp;
-      <button mat-stroked-button
-        title="Update"
+      <button
+        mat-stroked-button
+        matTooltip="Update selection with the data items"
         (click)="onUpdate($event)"
         [disabled]="selectedValidationRuleGroups.length === 0"
       >
