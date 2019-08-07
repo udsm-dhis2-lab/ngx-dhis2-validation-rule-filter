@@ -17,6 +17,7 @@
   justify-content: flex-end;
 }
 
+
 .validation-rule-group-type-selection {
   border-radius: 0;
 }
@@ -127,6 +128,16 @@
   width: 100%;
   cursor: pointer;
   font-size: 12px;
+  color: #000000;
+}
+
+.no-items-found-error-message {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+  font-size: 14px;
   color: #000000;
 }
 

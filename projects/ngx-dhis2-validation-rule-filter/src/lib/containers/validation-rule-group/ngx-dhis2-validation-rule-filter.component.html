@@ -96,6 +96,18 @@
             </a>
           </li>
         </ul>
+        <ul
+          class="validation-rule-group-list"
+          *ngIf="
+            (loaded$ | async) && availableValidationRuleGroups.length === 0
+          "
+        >
+          <li class="no-items-found-error-message">
+            <i class="material-icons">
+              warning </i
+            >&nbsp; Oops! no items to select!
+          </li>
+        </ul>
         <pagination-controls
           *ngIf="availableValidationRuleGroups.length >= 4"
           style="bottom: 0; position: relative;"
