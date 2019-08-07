@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { NgxDhis2ValidationRuleFilterComponent } from './components/validation-rule-group/ngx-dhis2-validation-rule-filter.component';
+import { NgxDhis2ValidationRuleFilterComponent } from './containers/validation-rule-group/ngx-dhis2-validation-rule-filter.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
