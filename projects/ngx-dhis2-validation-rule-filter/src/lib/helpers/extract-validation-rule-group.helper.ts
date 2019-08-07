@@ -28,7 +28,7 @@ export function getAllValidationRuleGroup(apiResult: APIResult) {
                 periodType: getSanitizePeriodType(periodType),
             };
         } else {
-            return [];
+            return { validationRuleGroup: [] };
         }
     } else if (apiResult.hasOwnProperty('validationRuleGroups')) {
         return {
@@ -44,7 +44,7 @@ export function getAllValidationRuleGroup(apiResult: APIResult) {
             ),
         };
     } else {
-        return [];
+        return { validationRuleGroup: [] };
     }
 }
 
