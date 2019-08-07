@@ -17,6 +17,8 @@ import { NgxDhis2ValidationRuleFilterService } from './services/ngx-dhis2-valida
 import { LoadingComponent } from './components/loading/loading.component';
 import { ProgressLoaderComponent } from './components/progress-loader/progress-loader.component';
 
+import { NgxPaginationModule } from 'ngx-pagination';
+
 import {
   BrowserAnimationsModule,
   NoopAnimationsModule,
@@ -28,7 +30,7 @@ import { FilterByNamePipe } from './pipes/search-by-name.pipe';
     NgxDhis2ValidationRuleFilterComponent,
     ProgressLoaderComponent,
     LoadingComponent,
-    FilterByNamePipe
+    FilterByNamePipe,
   ],
   imports: [
     CommonModule,
@@ -39,7 +41,8 @@ import { FilterByNamePipe } from './pipes/search-by-name.pipe';
     MatButtonModule,
     MatTooltipModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule,
   ],
   exports: [NgxDhis2ValidationRuleFilterComponent],
   providers: [NgxDhis2ValidationRuleFilterService],

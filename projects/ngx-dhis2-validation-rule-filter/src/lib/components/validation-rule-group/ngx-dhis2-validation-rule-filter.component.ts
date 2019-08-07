@@ -28,6 +28,9 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
   loaded$: Observable<boolean>;
   reloaded$: Observable<boolean>;
   periodTypes$: Observable<Array<string>>;
+  currentPageAvailable = 1;
+  currentPageSelected = 1;
+  totalAvailableItems = 0;
 
   @Input() dataSelection: Array<string>;
   @Input() selectedVRGs: Array<string>;
@@ -37,6 +40,7 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
   constructor(private store: Store<State>) {}
 
   ngOnInit() {
+    this.currentPageAvailable = 1;
     this.store.select(getAllValidationRuleGroups);
     this.store.dispatch(new LoadValidationRuleGroups(this.dataSelection));
     this.store
@@ -52,6 +56,8 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
     this.periodTypes$.subscribe((periods: Array<string>) => {
       this.periodTypes = periods;
     });
+
+    this.totalAvailableItems = this.availableValidationRuleGroups.length;
 
     if (this.selectedVRGs) {
       this.selectedValidationRuleGroups = _.uniqBy(
@@ -244,5 +250,13 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
       );
     }
     this.selectedValidationRuleGroups = [];
+  }
+
+  onAvailablePageChanged = e => {
+    e ? (this.currentPageAvailable = e) : (this.currentPageAvailable = 1);
+  }
+
+  onSelectedPageChanged = e => {
+    e ? (this.currentPageSelected = e) : (this.currentPageSelected = 1);
   }
 }
