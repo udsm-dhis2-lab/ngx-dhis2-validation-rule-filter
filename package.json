@@ -1,6 +1,6 @@
 {
   "name": "@iapps/ngx-dhis2-validation-rule-group-filter",
-  "version": "1.0.0-alpha.15",
+  "version": "1.0.0-beta.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 4202 --proxy-config proxy-config.json",
