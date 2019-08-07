@@ -13,6 +13,8 @@ import {
 
 import { Fn } from '@iapps/function-analytics';
 import { PeriodTypes } from '../../models/period-types.model';
+import { ValidationRuleGroup } from '../../models/validation-rule-group';
+
 
 @Component({
   selector: 'lib-ngx-dhis2-validation-rule-filter',
@@ -33,7 +35,7 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
   totalAvailableItems = 0;
 
   @Input() dataSelection: Array<string>;
-  @Input() selectedVRGs: Array<string>;
+  @Input() selectedVRGs: Array<ValidationRuleGroup>;
   @Output() update = new EventEmitter();
   @Output() close = new EventEmitter();
 
@@ -47,7 +49,11 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
       .select(getAllValidationRuleGroups)
       .subscribe((state: Array<{ name: string; id: string }>) => {
         state
-          ? (this.availableValidationRuleGroups = state)
+          ? (this.availableValidationRuleGroups = this.getUniqueAvailableValidationRuleGroup(
+              state,
+              this.selectedValidationRuleGroups,
+              this.selectedVRGs
+            ))
           : (this.availableValidationRuleGroups = []);
       });
     this.loaded$ = this.store.select(getValidationRuleGroupsLoaded);
@@ -57,7 +63,11 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
       this.periodTypes = periods;
     });
 
-    this.totalAvailableItems = this.availableValidationRuleGroups.length;
+    this.totalAvailableItems = this.getUniqueAvailableValidationRuleGroup(
+      this.availableValidationRuleGroups,
+      this.selectedValidationRuleGroups,
+      this.selectedVRGs
+    ).length;
 
     if (this.selectedVRGs) {
       this.selectedValidationRuleGroups = _.uniqBy(
@@ -115,12 +125,16 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
       'id'
     );
 
-    this.availableValidationRuleGroups = _.uniqBy(
-      this.popValidationRuleGroup(
-        this.availableValidationRuleGroups,
-        validationRuleGroup
+    this.availableValidationRuleGroups = this.getUniqueAvailableValidationRuleGroup(
+      _.uniqBy(
+        this.popValidationRuleGroup(
+          this.availableValidationRuleGroups,
+          validationRuleGroup
+        ),
+        'id'
       ),
-      'id'
+      this.selectedValidationRuleGroups,
+      this.selectedVRGs
     );
   }
 
@@ -135,12 +149,16 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
       'id'
     );
 
-    this.availableValidationRuleGroups = _.uniqBy(
-      this.pushValidationRuleGroup(
-        this.availableValidationRuleGroups,
-        validationRuleGroup
+    this.availableValidationRuleGroups = this.getUniqueAvailableValidationRuleGroup(
+      _.uniqBy(
+        this.pushValidationRuleGroup(
+          this.availableValidationRuleGroups,
+          validationRuleGroup
+        ),
+        'id'
       ),
-      'id'
+      this.selectedValidationRuleGroups,
+      this.selectedVRGs
     );
   }
 
@@ -233,20 +251,25 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
   onDeselectAllValidationRuleGroup = e => {
     e.stopPropagation();
     if (this.availableValidationRuleGroups.length > 0) {
-      this.availableValidationRuleGroups = _.uniqBy(
-        _.sortBy(
-          [
-            ...this.availableValidationRuleGroups,
-            ...this.selectedValidationRuleGroups,
-          ],
-          ['displayName']
+      this.availableValidationRuleGroups = this.getUniqueAvailableValidationRuleGroup(
+        _.uniqBy(
+          _.sortBy(
+            [
+              ...this.availableValidationRuleGroups,
+              ...this.selectedValidationRuleGroups,
+            ],
+            ['displayName']
+          ),
+          'id'
         ),
-        'id'
+        this.selectedValidationRuleGroups,
+        this.selectedVRGs
       );
     } else {
-      this.availableValidationRuleGroups = _.uniqBy(
+      this.availableValidationRuleGroups = this.getUniqueAvailableValidationRuleGroup(
+        _.uniqBy(this.selectedValidationRuleGroups, 'id'),
         this.selectedValidationRuleGroups,
-        'id'
+        this.selectedVRGs
       );
     }
     this.selectedValidationRuleGroups = [];
@@ -258,5 +281,13 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
 
   onSelectedPageChanged = e => {
     e ? (this.currentPageSelected = e) : (this.currentPageSelected = 1);
+  }
+
+  getUniqueAvailableValidationRuleGroup = (
+    available: Array<ValidationRuleGroup>,
+    selected: Array<ValidationRuleGroup>,
+    preSelected: Array<ValidationRuleGroup>
+  ) => {
+    return _.differenceBy(available, selected, preSelected, 'name');
   }
 }
