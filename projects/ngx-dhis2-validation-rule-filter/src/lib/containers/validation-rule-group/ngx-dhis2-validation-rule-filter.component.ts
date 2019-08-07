@@ -13,7 +13,8 @@ import {
 
 import { Fn } from '@iapps/function-analytics';
 import { PeriodTypes } from '../../models/period-types.model';
-import { ValidationRuleGroup } from 'ngx-dhis2-validation-rule-filter/lib/models/validation-rule-group';
+import { ValidationRuleGroup } from '../../models/validation-rule-group';
+
 
 @Component({
   selector: 'lib-ngx-dhis2-validation-rule-filter',
