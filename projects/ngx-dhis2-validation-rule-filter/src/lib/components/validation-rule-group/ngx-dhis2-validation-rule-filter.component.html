@@ -18,7 +18,10 @@
         matTooltip="Available Validation Rule Group"
         [matTooltipPosition]="'after'"
         class="badge badge-secondary validation-rule-group-badge"
-        >{{ (availableValidationRuleGroups | filterByName: searchString).length }} Available</span
+        >{{
+          (availableValidationRuleGroups | filterByName: searchString).length
+        }}
+        Available</span
       >
       <button
         matTooltip="Select All Validation Rule Group"
@@ -26,7 +29,9 @@
         [disabled]="availableValidationRuleGroups.length === 0"
         (click)="onSelectAllValidationRuleGroup($event)"
       >
-        &raquo;
+        <i class="material-icons">
+          arrow_forward
+        </i>
       </button>
     </div>
     <div class="validation-rule-group-selected-header">
@@ -36,7 +41,9 @@
         [disabled]="selectedValidationRuleGroups.length === 0"
         (click)="onDeselectAllValidationRuleGroup($event)"
       >
-        &laquo;
+        <i class="material-icons">
+          arrow_back
+        </i>
       </button>
       <span
         matTooltip="Selected Validation Rule Group"
@@ -66,7 +73,15 @@
             matTooltip="{{ availableValidationRuleGroup.name }}"
             [matTooltipPosition]="'after'"
             *ngFor="
-              let availableValidationRuleGroup of availableValidationRuleGroups | filterByName: searchString
+              let availableValidationRuleGroup of availableValidationRuleGroups
+                | filterByName: searchString
+                | paginate
+                  : {
+                      id: 'validation_rule_available_group_pagination_id',
+                      itemsPerPage: 2,
+                      currentPage: currentPageAvailable,
+                      totalItems: totalAvailableItems
+                    }
             "
           >
             <a
@@ -81,32 +96,66 @@
             </a>
           </li>
         </ul>
+        <pagination-controls
+          *ngIf="availableValidationRuleGroups.length >= 4"
+          style="bottom: 0; position: relative;"
+          id="validation_rule_available_group_pagination_id"
+          (pageChange)="onAvailablePageChanged($event)"
+          maxSize="2"
+          directionLinks="true"
+          autoHide="true"
+          responsive="true"
+          previousLabel="Prev"
+          nextLabel="Next"
+          screenReaderPaginationLabel="Pagination"
+          screenReaderPageLabel="currentPageAvailable"
+          screenReaderCurrentLabel="You're on page"
+        >
+        </pagination-controls>
       </div>
     </div>
     <div class="validation-rule-group-selected-body">
       <ul class="validation-rule-group-list">
-        <ul class="validation-rule-group-list">
-          <li
-            matTooltip="{{ selectedValidationRuleGroup.name }}"
-            [matTooltipPosition]="'before'"
-            *ngFor="
-              let selectedValidationRuleGroup of selectedValidationRuleGroups
+        <li
+          matTooltip="{{ selectedValidationRuleGroup.name }}"
+          [matTooltipPosition]="'before'"
+          *ngFor="
+            let selectedValidationRuleGroup of selectedValidationRuleGroups
+              | paginate
+                : {
+                    id: 'validation_rule_selected_group_pagination_id',
+                    itemsPerPage: 2,
+                    currentPage: currentPageSelected,
+                    totalItems: selectedValidationRuleGroups.length
+                  }
+          "
+        >
+          <a
+            (click)="
+              onDeselectValidationRuleGroup(selectedValidationRuleGroup, $event)
             "
           >
-            <a
-              (click)="
-                onDeselectValidationRuleGroup(
-                  selectedValidationRuleGroup,
-                  $event
-                )
-              "
-            >
-              <span class="badge badge-info">VRG</span>&nbsp;
-              {{ selectedValidationRuleGroup.name }}
-            </a>
-          </li>
-        </ul>
+            <span class="badge badge-info">VRG</span>&nbsp;
+            {{ selectedValidationRuleGroup.name }}
+          </a>
+        </li>
       </ul>
+      <pagination-controls
+        *ngIf="selectedValidationRuleGroups.length >= 4"
+        style="bottom: 0; position: relative;"
+        id="validation_rule_selected_group_pagination_id"
+        (pageChange)="onSelectedPageChanged($event)"
+        maxSize="2"
+        directionLinks="true"
+        autoHide="true"
+        responsive="true"
+        previousLabel="Prev"
+        nextLabel="Next"
+        screenReaderPaginationLabel="Pagination"
+        screenReaderPageLabel="currentPageSelected"
+        screenReaderCurrentLabel="You're on page"
+      >
+      </pagination-controls>
     </div>
   </div>
 
