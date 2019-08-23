@@ -21,11 +21,12 @@ import { FormsModule } from '@angular/forms';
 
 import { NgxJsonViewerModule } from 'ngx-json-viewer';
 import { MainSubHeaderComponent } from './components/main-sub-header/main-sub-header.component';
+import { NgxDhis2HttpClientModule } from '@iapps/ngx-dhis2-http-client';
 
 // This would be done dynamically with webpack for builds
 const environment = {
   development: true,
-  production: false,
+  production: false
 };
 
 export const metaReducers: MetaReducer<any>[] = !environment.production
@@ -33,12 +34,22 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
   : [];
 
 @NgModule({
-  declarations: [AppComponent, MainHeaderComponent, MainFooterComponent, MainSubHeaderComponent],
+  declarations: [
+    AppComponent,
+    MainHeaderComponent,
+    MainFooterComponent,
+    MainSubHeaderComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     NgxDhis2ValidationRuleFilterModule,
+    NgxDhis2HttpClientModule.forRoot({
+      version: 1,
+      namespace: 'iapps',
+      models: {}
+    }),
     HttpClientModule,
     StoreModule.forRoot({}, { metaReducers }),
     EffectsModule.forRoot([]),
@@ -46,6 +57,6 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
     // environment.development ? StoreDevtoolsModule.instrumentStore() : [],
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
