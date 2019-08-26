@@ -1,16 +1,25 @@
 {
   "name": "@iapps/ngx-dhis2-validation-rule-group-filter",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "peerDependencies": {
-    "@angular/common": "^7.2.0",
-    "@angular/core": "^7.2.0"
+    "@angular/common": "^7.2.0 || ^8.0.0",
+    "@angular/core": "^7.2.0 || ^8.0.0",
+    "@ngrx/effects": "^8.1.0",
+    "@ngrx/entity": "^8.1.0",
+    "@ngrx/store": "^8.1.0",
+    "@iapps/function-analytics": "^1.0.0-beta.18",
+    "@iapps/ngx-dhis2-http-client": "^2.0.8-beta.2",
+    "lodash": "^4.17.14"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/interactive-apps/ngx-dhis2-validation-rule-filter"
   },
-  "author": "Walter V. Faustine <waltervfaustine@gmail.com>",
-  "license": "GPL-3.0",
+  "developer": {
+    "name": "HISPTZ",
+    "url": "https://hisptanzania.org"
+  },
+  "license": "LGPL-3.0",
   "bugs": {
     "url": "https://github.com/interactive-apps/ngx-dhis2-validation-rule-filter/issues"
   }
