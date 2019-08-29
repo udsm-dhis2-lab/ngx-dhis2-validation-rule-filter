@@ -77,6 +77,10 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
     }
   }
 
+  ngOnDestroy() {
+    this.close.emit(this.getValidationRuleSelection());
+  }
+
   popValidationRuleGroup = (
     validationGroupList: Array<any>,
     validationGroup: any
