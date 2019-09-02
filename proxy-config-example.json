@@ -1,0 +1,14 @@
+{
+    "/api": {
+        "target": "https://dhis.instance.com",
+        "secure": "false",
+        "auth": "username:password",
+        "changeOrigin": "true"
+    },
+    "/": {
+        "target": "https://dhis.instance.com",
+        "secure": "false",
+        "auth": "username:password",
+        "changeOrigin": "true"
+    }
+}
