@@ -77,7 +77,7 @@ export class NgxDhis2ValidationRuleFilterComponent implements OnInit {
     }
   }
 
-  ngOnDestroy() {
+  ngOnDestroy = () => {
     this.close.emit(this.getValidationRuleSelection());
   }
 
