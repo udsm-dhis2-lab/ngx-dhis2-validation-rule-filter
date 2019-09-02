@@ -17,7 +17,7 @@ export class AppComponent {
   editorOptions: JsonEditorOptions;
   initialConfiguration;
   data: any;
-  @ViewChild(JsonEditorComponent, {}) editor: JsonEditorComponent;
+  @ViewChild(JsonEditorComponent, { static: false }) editor: JsonEditorComponent;
 
   ngOnInit() {
     this.dataElements = [

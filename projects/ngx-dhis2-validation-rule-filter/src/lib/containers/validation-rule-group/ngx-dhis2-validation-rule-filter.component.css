@@ -130,6 +130,16 @@
   color: #000000;
 }
 
+.no-items-found-error-message {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+  font-size: 14px;
+  color: #000000;
+}
+
 .validation-rule-group-list > li > a:hover {
   background-color: #dddddd;
 }
