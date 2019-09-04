@@ -45,7 +45,7 @@
     "ngx-json-viewer": "^2.4.0",
     "ngx-monaco-editor": "^8.0.0",
     "ngx-pagination": "^4.1.0",
-    "rxjs": "^6.5.2",
+    "rxjs": "^6.5.3",
     "rxjs-compat": "^6.5.2",
     "set-value": "^3.0.1",
     "tar": "^4.4.10",
