@@ -32,7 +32,7 @@
     "@ngrx/effects": "^8.0.0",
     "@ngrx/entity": "^8.3.0",
     "@ngrx/store": "^8.0.0",
-    "ang-jsoneditor": "^1.8.2",
+    "ang-jsoneditor": "^1.8.3",
     "bootstrap": "^4.3.1",
     "commitizen": "^4.0.3",
     "core-js": "^3.2.1",
