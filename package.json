@@ -39,7 +39,7 @@
     "docdash": "^1.1.0",
     "git-cz": "^3.2.1",
     "jsoneditor": "^7.0.5",
-    "lodash": "^4.17.14",
+    "lodash": "^4.17.20",
     "material-design-icons": "^3.0.1",
     "ngx-dhis2-http-client": "^1.0.2",
     "ngx-json-viewer": "^2.4.0",
