@@ -30,7 +30,7 @@
     "@iapps/function-analytics": "^1.0.0-beta.20",
     "@iapps/ngx-dhis2-http-client": "^2.0.8-beta.3",
     "@ngrx/effects": "^8.0.0",
-    "@ngrx/entity": "^8.3.0",
+    "@ngrx/entity": "^12.2.0",
     "@ngrx/store": "^8.0.0",
     "ang-jsoneditor": "^1.8.3",
     "bootstrap": "^4.3.1",
